@@ -3,17 +3,17 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import { useLanguage } from "@/context/LanguageContext";
-import { 
-  Phone, 
-  MapPin, 
-  Mail, 
-  Clock, 
-  ShieldAlert, 
-  Send, 
-  CheckCircle2, 
-  Building, 
-  Ambulance, 
-  Zap, 
+import {
+  Phone,
+  MapPin,
+  Mail,
+  Clock,
+  ShieldAlert,
+  Send,
+  CheckCircle2,
+  Building,
+  Ambulance,
+  Zap,
   UserCheck,
   PhoneCall,
   MessageSquare,
@@ -83,7 +83,7 @@ export default function SamparkPage() {
   return (
     <div style={{ backgroundColor: "#fdfbf7", minHeight: "85vh", padding: "50px 0 90px 0" }}>
       <div className="container">
-        
+
         {/* Breadcrumb Navigation */}
         <div style={{ display: "flex", alignItems: "center", gap: "8px", fontSize: "0.85rem", color: "#6b7280", marginBottom: "20px" }}>
           <Link href="/" style={{ color: "#0e3d28", fontWeight: 600 }}>मुख्य पृष्ठ</Link>
@@ -107,7 +107,7 @@ export default function SamparkPage() {
 
         {/* Key Info Cards */}
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: "18px", marginBottom: "36px" }}>
-          
+
           <div className="card-vip" style={{ padding: "24px" }}>
             <div style={{ width: "46px", height: "46px", borderRadius: "12px", backgroundColor: "#fef3c7", color: "#b45309", display: "flex", alignItems: "center", justifyContent: "center", marginBottom: "12px" }}>
               <MapPin size={22} />
@@ -150,7 +150,7 @@ export default function SamparkPage() {
 
         {/* 2-Columns: Suggestions Form & Emergency Directory */}
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(360px, 1fr))", gap: "30px", marginBottom: "40px" }}>
-          
+
           {/* Column 1: Citizen Suggestion Form */}
           <div style={{ backgroundColor: "#ffffff", borderRadius: "20px", padding: "32px", border: "1.5px solid #e7dfcc", boxShadow: "0 10px 30px rgba(0,0,0,0.05)" }}>
             <div style={{ display: "flex", alignItems: "center", gap: "8px", borderBottom: "1.5px solid #f3ece0", paddingBottom: "12px", marginBottom: "20px" }}>
@@ -274,7 +274,7 @@ export default function SamparkPage() {
 
           {/* Column 2: 24x7 Emergency Directory & Officials */}
           <div style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
-            
+
             {/* Emergency Hotlines */}
             <div style={{ backgroundColor: "#ffffff", borderRadius: "20px", padding: "26px", border: "1.5px solid #e7dfcc", boxShadow: "0 8px 24px rgba(0,0,0,0.04)" }}>
               <div style={{ display: "flex", alignItems: "center", gap: "8px", borderBottom: "1.5px solid #f3ece0", paddingBottom: "10px", marginBottom: "16px" }}>
