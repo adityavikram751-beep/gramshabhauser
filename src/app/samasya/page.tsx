@@ -4,22 +4,15 @@ import React, { useState } from "react";
 import Link from "next/link";
 import { useLanguage } from "@/context/LanguageContext";
 import { 
-  MessageSquareWarning, 
   Send, 
   CheckCircle2, 
   Camera, 
   Search, 
-  ArrowRight, 
-  ShieldAlert, 
-  FileText,
-  Clock,
-  Phone,
-  HelpCircle,
-  AlertCircle,
-  PlusCircle,
-  Calendar,
-  MapPin,
-  Check
+  FileText, 
+  Clock, 
+  Phone, 
+  PlusCircle, 
+  ShieldAlert 
 } from "lucide-react";
 
 interface GrievanceRecord {
@@ -41,61 +34,6 @@ interface GrievanceRecord {
   priority: "normal" | "urgent";
 }
 
-const pastRecords: GrievanceRecord[] = [
-  {
-    id: "GRY-2026-101",
-    name: "श्री दिनेश कुमार वर्मा",
-    phone: "98380 43210",
-    ward: "वार्ड नं. 6 (प्राथमिक विद्यालय मार्ग)",
-    category: "पेयजल / हैंडपंप खराबी",
-    desc: "प्राथमिक विद्यालय गरायें (1917) के सामने लगा इंडिया मार्का-2 हैंडपंप का सिलिंडर खराब हो गया था, जिससे स्कूली बच्चों एवं राहगीरों को पीने के पानी की समस्या हो रही थी।",
-    status: "resolved",
-    assignedOfficer: "श्री मनोज कुमार तिवारी",
-    officerRole: "ग्राम विकास अधिकारी (Panchayat Sachiv)",
-    officerPhone: "+91 91250 45678",
-    filedDate: "22 अक्टूबर 2026, 11:30 AM",
-    assignedDate: "23 अक्टूबर 2026, 09:15 AM",
-    inspectionDate: "24 अक्टूबर 2026, 02:00 PM",
-    resolvedDate: "25 अक्टूबर 2026, 04:45 PM",
-    resolutionRemarks: "जल निगम मिस्त्री द्वारा नया सिलिंडर व पाइप डालकर हैंडपंप पूर्ण रूप से चालू कर दिया गया है। पानी की गुणवत्ता उत्तम पाई गई।",
-    priority: "urgent"
-  },
-  {
-    id: "GRY-2026-102",
-    name: "श्रीमती सुनैना देवी",
-    phone: "97920 87654",
-    ward: "वार्ड नं. 3 (शिव मंदिर टोला)",
-    category: "बिजली / सोलर लाइट",
-    desc: "शिव मंदिर तिराहे पर स्थापित सोलर स्ट्रीट लाइट की बैटरी चार्ज नहीं हो रही है, जिससे शाम को अंधेरा रहता है।",
-    status: "inspecting",
-    assignedOfficer: "अवर अभियंता (विद्युत/सौर ऊर्जा प्रभाग)",
-    officerRole: "तकनीकी अधिकारी, विकास खंड लंभुआ",
-    officerPhone: "+91 94150 98765",
-    filedDate: "25 अक्टूबर 2026, 03:20 PM",
-    assignedDate: "26 अक्टूबर 2026, 10:00 AM",
-    inspectionDate: "27 अक्टूबर 2026, 11:30 AM",
-    resolutionRemarks: "स्थलीय निरीक्षण में सोलर पैनल व इन्वर्टर किट की जांच की गई। नई लिथियम बैटरी का इंडेंट ब्लॉक कार्यालय को भेजा गया है, 48 घंटे में स्थापना होगी।",
-    priority: "normal"
-  },
-  {
-    id: "GRY-2026-103",
-    name: "श्री कमलेश यादव",
-    phone: "94150 65432",
-    ward: "वार्ड नं. 1 (मुख्य प्रवेश द्वार टोला)",
-    category: "सड़क / नाली जाम",
-    desc: "स्वागत द्वार के पास मुख्य पक्की नाली में मलबे के कारण पानी का निकास अवरुद्ध है और बरसात का पानी सड़क पर बह रहा है।",
-    status: "assigned",
-    assignedOfficer: "श्री नीरव सिंह",
-    officerRole: "ग्राम प्रधान, गरायें",
-    officerPhone: "+91 98380 98765",
-    filedDate: "27 अक्टूबर 2026, 01:15 PM",
-    assignedDate: "28 अक्टूबर 2026, 09:30 AM",
-    inspectionDate: "प्रक्रियाधीन (आज सायं निर्धारित)",
-    resolutionRemarks: "सफाई कर्मी दल को मौके पर भेजा गया है। मलबा हटाकर नाली का बहाव सामान्य किया जा रहा है।",
-    priority: "urgent"
-  }
-];
-
 export default function SamasyaPage() {
   const { t, lang } = useLanguage();
 
@@ -116,6 +54,73 @@ export default function SamasyaPage() {
   const [searchResult, setSearchResult] = useState<GrievanceRecord | null>(null);
   const [searchError, setSearchError] = useState(false);
 
+  const pastRecords: GrievanceRecord[] = [
+    {
+      id: "GRY-2026-101",
+      name: lang === "hi" ? "श्री दिनेश कुमार वर्मा" : "Shri Dinesh Kumar Verma",
+      phone: "98380 43210",
+      ward: lang === "hi" ? "वार्ड नं. 6 (प्राथमिक विद्यालय मार्ग)" : "Ward No. 6 (Primary School Road)",
+      category: lang === "hi" ? "पेयजल / हैंडपंप खराबी" : "Drinking Water / Handpump Breakdown",
+      desc: lang === "hi"
+        ? "प्राथमिक विद्यालय गरायें (1917) के सामने लगा इंडिया मार्का-2 हैंडपंप का सिलिंडर खराब हो गया था, जिससे स्कूली बच्चों एवं राहगीरों को पीने के पानी की समस्या हो रही थी।"
+        : "The cylinder of India Mark-II handpump outside Primary School Garayen broke down, disrupting drinking water for school children and pedestrians.",
+      status: "resolved",
+      assignedOfficer: lang === "hi" ? "श्री मनोज कुमार तिवारी" : "Shri Manoj Kumar Tiwari",
+      officerRole: lang === "hi" ? "ग्राम विकास अधिकारी (Panchayat Sachiv)" : "Panchayat Secretary (VDO)",
+      officerPhone: "+91 91250 45678",
+      filedDate: lang === "hi" ? "22 अक्टूबर 2026, 11:30 AM" : "22 Oct 2026, 11:30 AM",
+      assignedDate: lang === "hi" ? "23 अक्टूबर 2026, 09:15 AM" : "23 Oct 2026, 09:15 AM",
+      inspectionDate: lang === "hi" ? "24 अक्टूबर 2026, 02:00 PM" : "24 Oct 2026, 02:00 PM",
+      resolvedDate: lang === "hi" ? "25 अक्टूबर 2026, 04:45 PM" : "25 Oct 2026, 04:45 PM",
+      resolutionRemarks: lang === "hi"
+        ? "जल निगम मिस्त्री द्वारा नया सिलिंडर व पाइप डालकर हैंडपंप पूर्ण रूप से चालू कर दिया गया है। पानी की गुणवत्ता उत्तम पाई गई।"
+        : "Jal Nigam technicians installed a new cylinder and riser pipe. Handpump restored to full operation with tested potable water.",
+      priority: "urgent"
+    },
+    {
+      id: "GRY-2026-102",
+      name: lang === "hi" ? "श्रीमती सुनैना देवी" : "Smt. Sunaina Devi",
+      phone: "97920 87654",
+      ward: lang === "hi" ? "वार्ड नं. 3 (शिव मंदिर टोला)" : "Ward No. 3 (Shiv Mandir Hamlet)",
+      category: lang === "hi" ? "बिजली / सोलर लाइट" : "Electricity / Solar Street Light",
+      desc: lang === "hi"
+        ? "शिव मंदिर तिराहे पर स्थापित सोलर स्ट्रीट लाइट की बैटरी चार्ज नहीं हो रही है, जिससे शाम को अंधेरा रहता है।"
+        : "The battery of the solar street light installed at the temple crossing is failing to hold charge, causing evening darkness.",
+      status: "inspecting",
+      assignedOfficer: lang === "hi" ? "अवर अभियंता (विद्युत/सौर ऊर्जा प्रभाग)" : "Junior Engineer (Renewable Energy)",
+      officerRole: lang === "hi" ? "तकनीकी अधिकारी, विकास खंड लंभुआ" : "Technical Officer, Lambhua Block",
+      officerPhone: "+91 94150 98765",
+      filedDate: lang === "hi" ? "25 अक्टूबर 2026, 03:20 PM" : "25 Oct 2026, 03:20 PM",
+      assignedDate: lang === "hi" ? "26 अक्टूबर 2026, 10:00 AM" : "26 Oct 2026, 10:00 AM",
+      inspectionDate: lang === "hi" ? "27 अक्टूबर 2026, 11:30 AM" : "27 Oct 2026, 11:30 AM",
+      resolutionRemarks: lang === "hi"
+        ? "स्थलीय निरीक्षण में सोलर पैनल व इन्वर्टर किट की जांच की गई। नई लिथियम बैटरी का इंडेंट ब्लॉक कार्यालय को भेजा गया है, 48 घंटे में स्थापना होगी।"
+        : "Field inspection completed. Indent for replacement lithium battery submitted to block office; installation scheduled within 48 hours.",
+      priority: "normal"
+    },
+    {
+      id: "GRY-2026-103",
+      name: lang === "hi" ? "श्री कमलेश यादव" : "Shri Kamlesh Yadav",
+      phone: "94150 65432",
+      ward: lang === "hi" ? "वार्ड नं. 1 (मुख्य प्रवेश द्वार टोला)" : "Ward No. 1 (Welcome Gate Hamlet)",
+      category: lang === "hi" ? "सड़क / नाली जाम" : "Road / Clogged Drain",
+      desc: lang === "hi"
+        ? "स्वागत द्वार के पास मुख्य पक्की नाली में मलबे के कारण पानी का निकास अवरुद्ध है और बरसात का पानी सड़क पर बह रहा है।"
+        : "Drainage runoff near the Welcome Gate is obstructed by debris, causing overflow onto the paved roadway.",
+      status: "assigned",
+      assignedOfficer: lang === "hi" ? "श्री नीरव सिंह" : "Shri Neerav Singh",
+      officerRole: lang === "hi" ? "ग्राम प्रधान, गरायें" : "Gram Pradhan, Garayen",
+      officerPhone: "+91 94510 24891",
+      filedDate: lang === "hi" ? "27 अक्टूबर 2026, 01:15 PM" : "27 Oct 2026, 01:15 PM",
+      assignedDate: lang === "hi" ? "28 अक्टूबर 2026, 09:30 AM" : "28 Oct 2026, 09:30 AM",
+      inspectionDate: lang === "hi" ? "प्रक्रियाधीन (आज सायं निर्धारित)" : "In Progress (Scheduled for inspection)",
+      resolutionRemarks: lang === "hi"
+        ? "सफाई कर्मी दल को मौके पर भेजा गया है। मलबा हटाकर नाली का बहाव सामान्य किया जा रहा है।"
+        : "Sanitation squad deployed on-site to remove silt and debris for free water discharge.",
+      priority: "urgent"
+    }
+  ];
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!fullName.trim() || !mobile.trim() || !description.trim()) return;
@@ -134,20 +139,20 @@ export default function SamasyaPage() {
     } else if (clean.startsWith("GRY-2026-")) {
       setSearchResult({
         id: clean,
-        name: "नागरिक (आपकी शिकायत)",
+        name: lang === "hi" ? "नागरिक (आपकी शिकायत)" : "Citizen (Your Grievance)",
         phone: "98XXXXXXXX",
-        ward: "गरायें लंभुआ (सुल्तानपुर)",
-        category: "सामान्य जनसमस्या",
-        desc: "आपकी दर्ज की गई शिकायत संबंधित नोडल अधिकारी को अग्रसारित कर दी गई है।",
+        ward: lang === "hi" ? "गरायें लंभुआ (सुल्तानपुर)" : "Garayen Lambhua (Sultanpur)",
+        category: lang === "hi" ? "सामान्य जनसमस्या" : "Public Civic Grievance",
+        desc: lang === "hi" ? "आपकी दर्ज की गई शिकायत संबंधित नोडल अधिकारी को अग्रसारित कर दी गई है।" : "Your grievance has been dispatched to the assigned nodal officer for immediate on-site inspection.",
         status: "registered",
-        assignedOfficer: "श्री मनोज कुमार तिवारी",
-        officerRole: "ग्राम विकास अधिकारी (सचिव)",
+        assignedOfficer: lang === "hi" ? "श्री मनोज कुमार तिवारी" : "Shri Manoj Kumar Tiwari",
+        officerRole: lang === "hi" ? "ग्राम विकास अधिकारी (सचिव)" : "Panchayat Secretary (VDO)",
         officerPhone: "+91 91250 45678",
-        filedDate: "आज, अभी-अभी",
-        assignedDate: "प्रक्रियाधीन",
-        inspectionDate: "प्रक्रियाधीन",
-        resolutionRemarks: "शिकायत संज्ञान में ली गई है। 48 घंटे के भीतर स्थलीय निरीक्षण किया जाएगा।",
-        priority: "urgent"
+        filedDate: lang === "hi" ? "आज, अभी-अभी" : "Today, Just now",
+        assignedDate: lang === "hi" ? "प्रक्रियाधीन" : "In Processing",
+        inspectionDate: lang === "hi" ? "शीघ्र निर्धारित" : "Scheduled shortly",
+        resolutionRemarks: lang === "hi" ? "पंचायत सचिवालय गरायें द्वारा शिकायत संज्ञान में ली गई है।" : "Acknowledged by Garayen Secretariat.",
+        priority: "normal"
       });
     } else {
       setSearchResult(null);
@@ -156,453 +161,413 @@ export default function SamasyaPage() {
   };
 
   return (
-    <div style={{ backgroundColor: "#fdfbf7", minHeight: "85vh", padding: "50px 0 90px 0" }}>
+    <div style={{ backgroundColor: "#fffdf8", minHeight: "85vh", padding: "40px 0 80px 0" }}>
       <div className="container">
-        
+
         {/* Breadcrumb Navigation */}
-        <div style={{ display: "flex", alignItems: "center", gap: "8px", fontSize: "0.85rem", color: "#6b7280", marginBottom: "20px" }}>
-          <Link href="/" style={{ color: "#0e3d28", fontWeight: 600 }}>मुख्य पृष्ठ</Link>
+        <div style={{ display: "flex", alignItems: "center", gap: "8px", fontSize: "0.85rem", color: "#78350f", marginBottom: "20px", flexWrap: "wrap" }}>
+          <Link href="/" style={{ color: "#d97706", fontWeight: 700, textDecoration: "none" }}>
+            {lang === "hi" ? "मुख्य पृष्ठ" : "Home"}
+          </Link>
           <span>/</span>
-          <span style={{ color: "#b45309", fontWeight: 700 }}>समस्या समाधान पोर्टल (Jansunwai)</span>
+          <span style={{ color: "#78350f", fontWeight: 700 }}>
+            {lang === "hi" ? "जनसमस्या निवारण एवं ट्रैकर" : "Grievance Portal & Tracker"}
+          </span>
         </div>
 
-        {/* Page Header */}
-        <div style={{ maxWidth: "820px", margin: "0 auto 36px auto", textAlign: "center" }}>
-          <div className="vip-badge" style={{ backgroundColor: "#fee2e2", borderColor: "#fca5a5", color: "#b91c1c" }}>
+        {/* Header */}
+        <div style={{ maxWidth: "820px", margin: "0 auto 32px auto", textAlign: "center" }}>
+          <div className="vip-badge" style={{ backgroundColor: "#fef3c7", borderColor: "#fde68a", color: "#92400e" }}>
             <ShieldAlert size={16} />
-            <span>24x7 ऑनलाइन जनसुनवाई पोर्टल</span>
+            <span>{lang === "hi" ? "ऑनलाइन जनसुनवाई 24x7" : "24/7 Digital Grievance Portal"}</span>
           </div>
-          <h1 style={{ fontSize: "clamp(2rem, 4vw, 2.8rem)", fontWeight: 800, color: "#0e3d28", lineHeight: 1.2, marginBottom: "12px" }}>
-            गरायें ग्राम पंचायत समस्या समाधान एवं स्थिति ट्रैकर
+          <h1 style={{ fontSize: "clamp(1.75rem, 4vw, 2.7rem)", fontWeight: 800, color: "#78350f", lineHeight: 1.25, marginBottom: "12px" }}>
+            {lang === "hi" ? "गरायें ग्राम पंचायत: जनसमस्या समाधान एवं लाइव ट्रैकर" : "Gram Panchayat Garayen: Public Grievance Portal & Live Tracker"}
           </h1>
-          <p style={{ fontSize: "1.05rem", color: "#4b5563", lineHeight: 1.6 }}>
-            गाँव की किसी भी समस्या को सीधे ग्राम प्रधान व सचिव तक दर्ज करें अथवा अपनी पुरानी शिकायत संख्या डालकर संपूर्ण प्रगति रिपोर्ट देखें।
+          <p style={{ fontSize: "clamp(0.92rem, 1.8vw, 1.05rem)", color: "#5a4225", lineHeight: 1.6 }}>
+            {lang === "hi"
+              ? "बिजली, पानी, सड़क, नाली, सफाई या सरकारी योजनाओं से जुड़ी कोई भी समस्या यहाँ दर्ज करें और टोकन नंबर द्वारा लाइव समाधान प्रगति ट्रैक करें।"
+              : "Report civic issues regarding power, drinking water, roads, sanitation, or welfare schemes and track real-time resolution with your token ID."}
           </p>
         </div>
 
-        {/* 2-Option Mode Switcher */}
-        <div style={{ display: "flex", justifyContent: "center", gap: "12px", marginBottom: "36px" }}>
+        {/* Tab switch */}
+        <div style={{ display: "flex", justifyContent: "center", gap: "12px", flexWrap: "wrap", marginBottom: "32px" }}>
           <button
-            type="button"
             onClick={() => setActiveTab("form")}
             style={{
+              padding: "12px 24px",
+              borderRadius: "30px",
+              fontWeight: 700,
+              fontSize: "0.95rem",
+              cursor: "pointer",
               display: "inline-flex",
               alignItems: "center",
               gap: "8px",
-              padding: "12px 26px",
-              borderRadius: "30px",
-              fontSize: "0.95rem",
-              fontWeight: 700,
-              cursor: "pointer",
-              border: activeTab === "form" ? "2px solid #b91c1c" : "1.5px solid #d1d5db",
-              backgroundColor: activeTab === "form" ? "#b91c1c" : "#ffffff",
-              color: activeTab === "form" ? "#ffffff" : "#374151",
-              boxShadow: activeTab === "form" ? "0 6px 18px rgba(185,28,28,0.25)" : "none"
+              border: activeTab === "form" ? "2px solid #d97706" : "1.5px solid #fde68a",
+              backgroundColor: activeTab === "form" ? "#d97706" : "#ffffff",
+              color: activeTab === "form" ? "#ffffff" : "#78350f",
+              boxShadow: activeTab === "form" ? "0 8px 25px rgba(217, 119, 6, 0.3)" : "none",
+              minHeight: "44px"
             }}
           >
             <PlusCircle size={18} />
-            <span>1. नई समस्या दर्ज करें (Grievance Form)</span>
+            <span>{lang === "hi" ? "नई समस्या दर्ज करें (New Grievance)" : "Submit New Grievance"}</span>
           </button>
 
           <button
-            type="button"
             onClick={() => {
               setActiveTab("track");
-              if (!searchResult) {
-                setSearchId("GRY-2026-101");
-                handleLookup("GRY-2026-101");
+              if (!searchResult && pastRecords.length > 0) {
+                setSearchResult(pastRecords[0]);
+                setSearchId(pastRecords[0].id);
               }
             }}
             style={{
+              padding: "12px 24px",
+              borderRadius: "30px",
+              fontWeight: 700,
+              fontSize: "0.95rem",
+              cursor: "pointer",
               display: "inline-flex",
               alignItems: "center",
               gap: "8px",
-              padding: "12px 26px",
-              borderRadius: "30px",
-              fontSize: "0.95rem",
-              fontWeight: 700,
-              cursor: "pointer",
-              border: activeTab === "track" ? "2px solid #0e3d28" : "1.5px solid #d1d5db",
-              backgroundColor: activeTab === "track" ? "#0e3d28" : "#ffffff",
-              color: activeTab === "track" ? "#fbbf24" : "#374151",
-              boxShadow: activeTab === "track" ? "0 6px 18px rgba(14,61,40,0.25)" : "none"
+              border: activeTab === "track" ? "2px solid #d97706" : "1.5px solid #fde68a",
+              backgroundColor: activeTab === "track" ? "#d97706" : "#ffffff",
+              color: activeTab === "track" ? "#ffffff" : "#78350f",
+              boxShadow: activeTab === "track" ? "0 8px 25px rgba(217, 119, 6, 0.3)" : "none",
+              minHeight: "44px"
             }}
           >
             <Search size={18} />
-            <span>2. शिकायत ID से पुराने रिकॉर्ड जांचें (Live Tracking)</span>
+            <span>{lang === "hi" ? "शिकायत की स्थिति जांचें (Track Status)" : "Track Resolution Progress"}</span>
           </button>
         </div>
 
-        {/* ================= OPTION 1: GRIEVANCE SUBMISSION FORM ================= */}
+        {/* TAB 1: Grievance Submission Form */}
         {activeTab === "form" && (
-          <div 
-            style={{ 
-              maxWidth: "780px", 
-              margin: "0 auto", 
-              backgroundColor: "#ffffff", 
-              borderRadius: "24px", 
-              padding: "38px", 
-              border: "1.5px solid #e7dfcc", 
-              boxShadow: "0 12px 35px rgba(0,0,0,0.06)" 
-            }}
-          >
-            {createdToken ? (
-              /* Success Screen */
-              <div style={{ textAlign: "center", padding: "16px 10px" }}>
-                <div style={{ width: "68px", height: "68px", borderRadius: "50%", backgroundColor: "#dcfce7", color: "#15803d", display: "flex", alignItems: "center", justifyContent: "center", margin: "0 auto 16px auto" }}>
-                  <CheckCircle2 size={42} />
-                </div>
-                <h3 style={{ fontSize: "1.6rem", fontWeight: 800, color: "#0e3d28", marginBottom: "8px" }}>
-                  आपकी शिकायत सफलतापूर्वक दर्ज कर ली गई है!
-                </h3>
-                <p style={{ fontSize: "0.92rem", color: "#4b5563", maxWidth: "500px", margin: "0 auto 20px auto" }}>
-                  शिकायत को ग्राम विकास अधिकारी एवं ग्राम प्रधान को अग्रसारित कर दिया गया है। 48 घंटे में स्थलीय निरीक्षण होगा।
-                </p>
-
-                <div style={{ backgroundColor: "#fef3c7", border: "2px solid #fde68a", borderRadius: "16px", padding: "18px 24px", display: "inline-block", marginBottom: "26px" }}>
-                  <span style={{ fontSize: "0.82rem", color: "#92400e", fontWeight: 700, display: "block" }}>
-                    आपकी शिकायत टोकन संख्या (Complaint ID)
-                  </span>
-                  <span style={{ fontSize: "2.2rem", fontWeight: 900, color: "#b45309" }}>
-                    {createdToken}
-                  </span>
-                  <span style={{ fontSize: "0.75rem", color: "#78350f", display: "block", marginTop: "2px" }}>
-                    कृपया इस टोकन नंबर को नोट कर लें
-                  </span>
-                </div>
-
-                <div style={{ display: "flex", justifyContent: "center", gap: "12px", flexWrap: "wrap" }}>
-                  <button
-                    type="button"
-                    onClick={() => {
-                      setActiveTab("track");
-                      setSearchId(createdToken);
-                      handleLookup(createdToken);
-                    }}
-                    className="btn btn-primary"
-                    style={{ padding: "12px 24px", fontSize: "0.92rem", borderRadius: "10px", backgroundColor: "#0e3d28" }}
-                  >
-                    <Search size={16} />
-                    <span>इसी पेज पर लाइव स्थिति देखें</span>
-                  </button>
-
-                  <button
-                    type="button"
-                    onClick={() => {
-                      setCreatedToken(null);
-                      setFullName("");
-                      setMobile("");
-                      setDescription("");
-                      setPhotoAttached(false);
-                    }}
-                    className="btn btn-secondary"
-                    style={{ padding: "12px 20px", fontSize: "0.92rem", borderRadius: "10px" }}
-                  >
-                    अन्य शिकायत दर्ज करें
-                  </button>
-                </div>
+          <div style={{ maxWidth: "800px", margin: "0 auto", backgroundColor: "#ffffff", borderRadius: "24px", padding: "clamp(20px, 4vw, 40px)", border: "1.5px solid #fde68a", boxShadow: "0 10px 30px rgba(217, 119, 6, 0.06)" }}>
+            <form onSubmit={handleSubmit}>
+              
+              <div style={{ marginBottom: "20px" }}>
+                <label style={{ display: "block", fontSize: "0.9rem", fontWeight: 700, color: "#451a03", marginBottom: "8px" }}>
+                  {lang === "hi" ? "समस्या का प्रकार (Category) *" : "Issue Category *"}
+                </label>
+                <select
+                  value={category}
+                  onChange={(e) => setCategory(e.target.value)}
+                  style={{ width: "100%", padding: "12px 14px", borderRadius: "12px", border: "1.5px solid #fde68a", fontSize: "0.95rem", backgroundColor: "#fffdfa", outline: "none", fontWeight: 600, color: "#451a03" }}
+                >
+                  <option value="bijli">{lang === "hi" ? "बिजली / सोलर स्ट्रीट लाइट की खराबी" : "Electricity / Solar Street Light Fault"}</option>
+                  <option value="paani">{lang === "hi" ? "पेयजल / हैंडपंप / नल पाइपलाइन समस्या" : "Drinking Water / Handpump / Tap Water Fault"}</option>
+                  <option value="sadak">{lang === "hi" ? "सड़क / खड़ंजा / नाली सफाई" : "Road / Brick Paving / Drainage Issue"}</option>
+                  <option value="safai">{lang === "hi" ? "सफाई / कचरा प्रबंधन" : "Sanitation & Garbage Management"}</option>
+                  <option value="awas">{lang === "hi" ? "आवास / राशन कार्ड / वृद्धा पेंशन" : "Housing / Ration Card / Pension"}</option>
+                  <option value="kisan">{lang === "hi" ? "नहर पानी / खाद-बीज / कृषि समस्या" : "Canal Irrigation / Seeds / Agriculture"}</option>
+                  <option value="other">{lang === "hi" ? "अन्य जनसमस्या" : "Other Civic Issues"}</option>
+                </select>
               </div>
-            ) : (
-              /* Complaint Input Form */
-              <form onSubmit={handleSubmit}>
-                <div style={{ display: "flex", alignItems: "center", gap: "8px", borderBottom: "1px solid #f3ece0", paddingBottom: "12px", marginBottom: "22px" }}>
-                  <FileText size={20} color="#b91c1c" />
-                  <h3 style={{ fontSize: "1.25rem", fontWeight: 800, color: "#0e3d28", margin: 0 }}>
-                    शिकायत पंजीकरण प्रपत्र
-                  </h3>
-                </div>
 
-                {/* Category */}
-                <div style={{ marginBottom: "18px" }}>
-                  <label style={{ display: "block", fontSize: "0.88rem", fontWeight: 700, color: "#1f2937", marginBottom: "6px" }}>
-                    समस्या का प्रकार (Category) *
+              <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 200px), 1fr))", gap: "16px", marginBottom: "20px" }}>
+                <div>
+                  <label style={{ display: "block", fontSize: "0.85rem", fontWeight: 700, color: "#451a03", marginBottom: "6px" }}>
+                    {lang === "hi" ? "आपका पूरा नाम *" : "Your Full Name *"}
                   </label>
-                  <select
-                    value={category}
-                    onChange={(e) => setCategory(e.target.value)}
-                    style={{ width: "100%", padding: "11px 14px", borderRadius: "10px", border: "1.5px solid #d1d5db", fontSize: "0.92rem", backgroundColor: "#f9fafb", outline: "none", fontWeight: 600 }}
-                  >
-                    <option value="bijli">बिजली / सोलर स्ट्रीट लाइट की खराबी</option>
-                    <option value="paani">पेयजल / हैंडपंप / नल पाइपलाइन समस्या</option>
-                    <option value="sadak">सड़क / खड़ंजा / नाली जाम व जलभराव</option>
-                    <option value="safai">सफाई व कचरा प्रबंधन</option>
-                    <option value="awas">प्रधानमंत्री आवास / शौचालय / राशन कार्ड</option>
-                    <option value="kisan">नहर पानी / खाद-बीज / कृषि समस्या</option>
-                    <option value="other">अन्य जनसमस्या</option>
-                  </select>
-                </div>
-
-                {/* Name, Phone, Ward */}
-                <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(210px, 1fr))", gap: "14px", marginBottom: "18px" }}>
-                  <div>
-                    <label style={{ display: "block", fontSize: "0.85rem", fontWeight: 700, color: "#1f2937", marginBottom: "6px" }}>
-                      शिकायतकर्ता का नाम *
-                    </label>
-                    <input
-                      type="text"
-                      required
-                      value={fullName}
-                      onChange={(e) => setFullName(e.target.value)}
-                      placeholder="उदा. राहुल कुमार वर्मा"
-                      style={{ width: "100%", padding: "11px 12px", borderRadius: "10px", border: "1.5px solid #d1d5db", fontSize: "0.92rem", outline: "none" }}
-                    />
-                  </div>
-
-                  <div>
-                    <label style={{ display: "block", fontSize: "0.85rem", fontWeight: 700, color: "#1f2937", marginBottom: "6px" }}>
-                      मोबाइल नंबर *
-                    </label>
-                    <input
-                      type="tel"
-                      required
-                      value={mobile}
-                      onChange={(e) => setMobile(e.target.value)}
-                      placeholder="98XXXXXXXX"
-                      style={{ width: "100%", padding: "11px 12px", borderRadius: "10px", border: "1.5px solid #d1d5db", fontSize: "0.92rem", outline: "none" }}
-                    />
-                  </div>
-
-                  <div>
-                    <label style={{ display: "block", fontSize: "0.85rem", fontWeight: 700, color: "#1f2937", marginBottom: "6px" }}>
-                      वार्ड / टोला (गरायें) *
-                    </label>
-                    <select
-                      value={ward}
-                      onChange={(e) => setWard(e.target.value)}
-                      style={{ width: "100%", padding: "11px 12px", borderRadius: "10px", border: "1.5px solid #d1d5db", fontSize: "0.9rem", outline: "none" }}
-                    >
-                      <option value="वार्ड 1 - प्रवेश द्वार टोला">वार्ड 1 - प्रवेश द्वार टोला</option>
-                      <option value="वार्ड 2 - पुराना बाज़ार टोला">वार्ड 2 - पुराना बाज़ार टोला</option>
-                      <option value="वार्ड 3 - शिव मंदिर टोला">वार्ड 3 - शिव मंदिर टोला</option>
-                      <option value="वार्ड 4 - बड़का टोला">वार्ड 4 - बड़का टोला</option>
-                      <option value="वार्ड 5 - सरोवर टोला">वार्ड 5 - सरोवर टोला</option>
-                      <option value="वार्ड 6 - प्राथमिक विद्यालय मार्ग">वार्ड 6 - प्राथमिक विद्यालय मार्ग</option>
-                      <option value="वार्ड 7 - गढ़ी टोला">वार्ड 7 - गढ़ी टोला</option>
-                      <option value="वार्ड 8 - पूरब टोला">वार्ड 8 - पूरब टोला</option>
-                      <option value="वार्ड 9 - नहर पुलिया टोला">वार्ड 9 - नहर पुलिया टोला</option>
-                      <option value="वार्ड 10 - पश्चिम टोला">वार्ड 10 - पश्चिम टोला</option>
-                      <option value="वार्ड 11 - दक्षिणी सीमा टोला">वार्ड 11 - दक्षिणी सीमा</option>
-                    </select>
-                  </div>
-                </div>
-
-                {/* Details */}
-                <div style={{ marginBottom: "18px" }}>
-                  <label style={{ display: "block", fontSize: "0.85rem", fontWeight: 700, color: "#1f2937", marginBottom: "6px" }}>
-                    समस्या का विस्तृत विवरण (Details) *
-                  </label>
-                  <textarea
-                    rows={4}
+                  <input
+                    type="text"
                     required
-                    value={description}
-                    onChange={(e) => setDescription(e.target.value)}
-                    placeholder="समस्या का सटीक स्थान व विवरण लिखें ताकि अधिकारी मौके पर पहुंचकर तुरंत निस्तारण कर सकें..."
-                    style={{ width: "100%", padding: "12px 14px", borderRadius: "10px", border: "1.5px solid #d1d5db", fontSize: "0.92rem", resize: "vertical", outline: "none" }}
+                    value={fullName}
+                    onChange={(e) => setFullName(e.target.value)}
+                    placeholder={lang === "hi" ? "उदा. राहुल कुमार" : "e.g., Rahul Kumar"}
+                    style={{ width: "100%", padding: "11px 13px", borderRadius: "10px", border: "1.5px solid #fde68a", fontSize: "0.92rem", outline: "none", color: "#451a03" }}
                   />
                 </div>
 
-                {/* Photo & Priority */}
-                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: "14px", marginBottom: "24px" }}>
-                  <label style={{ display: "inline-flex", alignItems: "center", gap: "8px", padding: "8px 16px", borderRadius: "10px", border: "1px dashed #d97706", backgroundColor: "#fffbeb", color: "#b45309", cursor: "pointer", fontSize: "0.85rem", fontWeight: 600 }}>
-                    <Camera size={16} />
-                    <span>{photoAttached ? "✓ फोटो संलग्न है" : "समस्या की फोटो जोड़ें"}</span>
-                    <input type="file" accept="image/*" style={{ display: "none" }} onChange={() => setPhotoAttached(true)} />
+                <div>
+                  <label style={{ display: "block", fontSize: "0.85rem", fontWeight: 700, color: "#451a03", marginBottom: "6px" }}>
+                    {lang === "hi" ? "मोबाइल नंबर *" : "Mobile Number *"}
                   </label>
-
-                  <div style={{ display: "flex", alignItems: "center", gap: "12px", fontSize: "0.88rem" }}>
-                    <span style={{ fontWeight: 700, color: "#4b5563" }}>प्राथमिकता:</span>
-                    <label style={{ display: "flex", alignItems: "center", gap: "5px", cursor: "pointer" }}>
-                      <input type="radio" checked={priority === "normal"} onChange={() => setPriority("normal")} />
-                      <span>सामान्य</span>
-                    </label>
-                    <label style={{ display: "flex", alignItems: "center", gap: "5px", cursor: "pointer", color: "#dc2626", fontWeight: 700 }}>
-                      <input type="radio" checked={priority === "urgent"} onChange={() => setPriority("urgent")} />
-                      <span>अति आवश्यक</span>
-                    </label>
-                  </div>
+                  <input
+                    type="tel"
+                    required
+                    value={mobile}
+                    onChange={(e) => setMobile(e.target.value)}
+                    placeholder="98XXXXXXXX"
+                    style={{ width: "100%", padding: "11px 13px", borderRadius: "10px", border: "1.5px solid #fde68a", fontSize: "0.92rem", outline: "none", color: "#451a03" }}
+                  />
                 </div>
 
-                <button
-                  type="submit"
-                  className="btn btn-primary"
-                  style={{ width: "100%", padding: "13px", fontSize: "1rem", borderRadius: "12px", backgroundColor: "#b91c1c" }}
-                >
-                  <Send size={18} />
-                  <span>समस्या दर्ज करें (Submit Grievance)</span>
-                </button>
-              </form>
-            )}
+                <div>
+                  <label style={{ display: "block", fontSize: "0.85rem", fontWeight: 700, color: "#451a03", marginBottom: "6px" }}>
+                    {lang === "hi" ? "वार्ड नंबर / टोला *" : "Ward / Hamlet *"}
+                  </label>
+                  <select
+                    value={ward}
+                    onChange={(e) => setWard(e.target.value)}
+                    style={{ width: "100%", padding: "11px 13px", borderRadius: "10px", border: "1.5px solid #fde68a", fontSize: "0.92rem", outline: "none", backgroundColor: "#fffdfa", color: "#451a03" }}
+                  >
+                    <option value="वार्ड 1 - मुख्य प्रवेश द्वार टोला">{lang === "hi" ? "वार्ड 1 - प्रवेश द्वार टोला" : "Ward 1 - Welcome Gate"}</option>
+                    <option value="वार्ड 2 - पुराना बाज़ार टोला">{lang === "hi" ? "वार्ड 2 - पुराना बाज़ार टोला" : "Ward 2 - Purana Bazaar"}</option>
+                    <option value="वार्ड 3 - शिव मंदिर टोला">{lang === "hi" ? "वार्ड 3 - शिव मंदिर टोला" : "Ward 3 - Shiv Mandir"}</option>
+                    <option value="वार्ड 4 - बड़का टोला">{lang === "hi" ? "वार्ड 4 - बड़का टोला" : "Ward 4 - Badka Tola"}</option>
+                    <option value="वार्ड 5 - अमृत सरोवर टोला">{lang === "hi" ? "वार्ड 5 - सरोवर टोला" : "Ward 5 - Amrit Sarovar"}</option>
+                    <option value="वार्ड 6 - प्राथमिक विद्यालय मार्ग">{lang === "hi" ? "वार्ड 6 - विद्यालय मार्ग" : "Ward 6 - Primary School Road"}</option>
+                    <option value="वार्ड 7 - गढ़ी टोला">{lang === "hi" ? "वार्ड 7 - गढ़ी टोला" : "Ward 7 - Gadhi Tola"}</option>
+                    <option value="वार्ड 8 - पूरब टोला">{lang === "hi" ? "वार्ड 8 - पूरब टोला" : "Ward 8 - Poorab Tola"}</option>
+                    <option value="वार्ड 9 - नहर पुलिया टोला">{lang === "hi" ? "वार्ड 9 - नहर पुलिया टोला" : "Ward 9 - Nahar Puliya"}</option>
+                    <option value="वार्ड 10 - पश्चिम टोला">{lang === "hi" ? "वार्ड 10 - पश्चिम टोला" : "Ward 10 - Paschim Tola"}</option>
+                    <option value="वार्ड 11 - नई बस्ती">{lang === "hi" ? "वार्ड 11 - नई बस्ती" : "Ward 11 - Southern Border"}</option>
+                  </select>
+                </div>
+              </div>
+
+              <div style={{ marginBottom: "20px" }}>
+                <label style={{ display: "block", fontSize: "0.85rem", fontWeight: 700, color: "#451a03", marginBottom: "6px" }}>
+                  {lang === "hi" ? "समस्या का विवरण (Details) *" : "Detailed Description of Grievance *"}
+                </label>
+                <textarea
+                  rows={4}
+                  required
+                  value={description}
+                  onChange={(e) => setDescription(e.target.value)}
+                  placeholder={lang === "hi" 
+                    ? "कृपया समस्या का स्थान और विवरण विस्तार से लिखें ताकि अधिकारी तुरंत मौके पर पहुंचकर समाधान कर सकें..."
+                    : "Please describe the exact location and nature of the issue so assigned officials can inspect and resolve it immediately..."}
+                  style={{ width: "100%", padding: "12px 14px", borderRadius: "10px", border: "1.5px solid #fde68a", fontSize: "0.95rem", resize: "vertical", outline: "none", color: "#451a03" }}
+                />
+              </div>
+
+              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: "16px", marginBottom: "28px" }}>
+                <div>
+                  <label style={{ display: "inline-flex", alignItems: "center", gap: "8px", padding: "8px 16px", borderRadius: "10px", border: "1px dashed #d97706", backgroundColor: "#fffbeb", color: "#92400e", cursor: "pointer", fontSize: "0.85rem", fontWeight: 600 }}>
+                    <Camera size={16} />
+                    <span>{photoAttached ? (lang === "hi" ? "✓ फोटो संलग्न है" : "✓ Photo Attached") : (lang === "hi" ? "समस्या की फोटो जोड़ें (वैकल्पिक)" : "Attach Photo (Optional)")}</span>
+                    <input
+                      type="file"
+                      accept="image/*"
+                      style={{ display: "none" }}
+                      onChange={() => setPhotoAttached(true)}
+                    />
+                  </label>
+                </div>
+
+                <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
+                  <span style={{ fontSize: "0.85rem", fontWeight: 700, color: "#451a03" }}>
+                    {lang === "hi" ? "प्राथमिकता:" : "Urgency:"}
+                  </span>
+                  <label style={{ display: "flex", alignItems: "center", gap: "6px", cursor: "pointer", fontSize: "0.88rem", color: "#451a03" }}>
+                    <input
+                      type="radio"
+                      name="priority"
+                      checked={priority === "normal"}
+                      onChange={() => setPriority("normal")}
+                    />
+                    <span>{lang === "hi" ? "सामान्य (Normal)" : "Normal"}</span>
+                  </label>
+                  <label style={{ display: "flex", alignItems: "center", gap: "6px", cursor: "pointer", fontSize: "0.88rem", color: "#d97706", fontWeight: 700 }}>
+                    <input
+                      type="radio"
+                      name="priority"
+                      checked={priority === "urgent"}
+                      onChange={() => setPriority("urgent")}
+                    />
+                    <span>{lang === "hi" ? "अति आवश्यक (Urgent)" : "Urgent"}</span>
+                  </label>
+                </div>
+              </div>
+
+              <button
+                type="submit"
+                className="btn btn-primary"
+                style={{ width: "100%", padding: "14px", fontSize: "1.02rem", borderRadius: "12px" }}
+              >
+                <Send size={18} />
+                <span>{lang === "hi" ? "समस्या दर्ज करें (Submit Grievance)" : "Submit Grievance Now"}</span>
+              </button>
+            </form>
           </div>
         )}
 
-        {/* ================= OPTION 2: ID SEARCH & PAST RECORDS ================= */}
+        {/* TAB 2: Status Tracker */}
         {activeTab === "track" && (
-          <div style={{ maxWidth: "820px", margin: "0 auto" }}>
+          <div style={{ maxWidth: "800px", margin: "0 auto" }}>
             
-            {/* Search Input Box */}
-            <div style={{ backgroundColor: "#ffffff", borderRadius: "20px", padding: "26px", border: "1.5px solid #e7dfcc", boxShadow: "0 8px 30px rgba(0,0,0,0.05)", marginBottom: "26px" }}>
-              <span style={{ fontSize: "0.85rem", color: "#0e3d28", fontWeight: 700, display: "block", marginBottom: "8px" }}>
-                अपनी शिकायत संख्या (Complaint Token ID) दर्ज करें:
+            <form 
+              onSubmit={(e) => {
+                e.preventDefault();
+                handleLookup(searchId);
+              }} 
+              style={{ display: "flex", gap: "10px", marginBottom: "18px", flexWrap: "wrap" }}
+            >
+              <input
+                type="text"
+                required
+                value={searchId}
+                onChange={(e) => setSearchId(e.target.value)}
+                placeholder={lang === "hi" ? "अपनी शिकायत संख्या दर्ज करें (जैसे: GRY-2026-101)" : "Enter Grievance Token ID (e.g., GRY-2026-101)"}
+                style={{ flex: 1, minWidth: "220px", padding: "13px 16px", borderRadius: "12px", border: "1.5px solid #fde68a", fontSize: "0.98rem", outline: "none", fontWeight: 600, color: "#451a03" }}
+              />
+              <button
+                type="submit"
+                className="btn btn-primary"
+                style={{ padding: "0 24px", borderRadius: "12px", height: "48px" }}
+              >
+                <Search size={18} />
+                <span>{lang === "hi" ? "स्थिति देखें" : "Track Status"}</span>
+              </button>
+            </form>
+
+            {/* Quick Demo IDs */}
+            <div style={{ display: "flex", alignItems: "center", gap: "8px", flexWrap: "wrap", marginBottom: "26px", fontSize: "0.85rem" }}>
+              <span style={{ color: "#78350f", fontWeight: 600 }}>
+                {lang === "hi" ? "डेमो आईडी से जांचें:" : "Try Sample Demo Tickets:"}
               </span>
-              
-              <div style={{ display: "flex", gap: "10px", flexWrap: "wrap", marginBottom: "14px" }}>
-                <input
-                  type="text"
-                  value={searchId}
-                  onChange={(e) => setSearchId(e.target.value)}
-                  placeholder="उदा. GRY-2026-101"
-                  style={{ flex: "1 1 240px", padding: "12px 16px", borderRadius: "12px", border: "1.5px solid #d1d5db", fontSize: "1rem", fontWeight: 700, color: "#0e3d28", outline: "none" }}
-                />
+              {pastRecords.map((r) => (
                 <button
+                  key={r.id}
                   type="button"
-                  onClick={() => handleLookup(searchId)}
-                  className="btn btn-primary"
-                  style={{ padding: "0 26px", borderRadius: "12px", fontSize: "0.95rem" }}
+                  onClick={() => {
+                    setSearchId(r.id);
+                    handleLookup(r.id);
+                  }}
+                  style={{
+                    backgroundColor: "#fef3c7",
+                    border: "1px solid #fde68a",
+                    color: "#92400e",
+                    padding: "4px 10px",
+                    borderRadius: "6px",
+                    cursor: "pointer",
+                    fontSize: "0.82rem",
+                    fontWeight: 700
+                  }}
                 >
-                  <Search size={16} />
-                  <span>रिकॉर्ड खोजें</span>
+                  {r.id}
                 </button>
-              </div>
-
-              {/* Demo IDs */}
-              <div style={{ display: "flex", alignItems: "center", gap: "8px", flexWrap: "wrap", fontSize: "0.82rem" }}>
-                <span style={{ color: "#6b7280", fontWeight: 600 }}>डेमो शिकायत रिकॉर्ड देखें:</span>
-                {pastRecords.map((r) => (
-                  <button
-                    key={r.id}
-                    type="button"
-                    onClick={() => {
-                      setSearchId(r.id);
-                      handleLookup(r.id);
-                    }}
-                    style={{
-                      backgroundColor: searchId === r.id ? "#0e3d28" : "#fef3c7",
-                      color: searchId === r.id ? "#ffffff" : "#92400e",
-                      border: "1px solid #fde68a",
-                      padding: "4px 10px",
-                      borderRadius: "6px",
-                      fontWeight: 700,
-                      cursor: "pointer",
-                      fontSize: "0.8rem"
-                    }}
-                  >
-                    {r.id} ({r.status === "resolved" ? "निस्तारित" : "प्रगति पर"})
-                  </button>
-                ))}
-              </div>
-
-              {searchError && (
-                <div style={{ marginTop: "12px", backgroundColor: "#fee2e2", border: "1px solid #fca5a5", color: "#b91c1c", padding: "10px", borderRadius: "8px", fontSize: "0.85rem", fontWeight: 600 }}>
-                  यह शिकायत संख्या नहीं मिली। कृपया सही टोकन संख्या दर्ज करें अथवा ऊपर दिए गए डेमो बटन पर क्लिक करें।
-                </div>
-              )}
+              ))}
             </div>
 
-            {/* Display Found Record with Full Past Details */}
+            {searchError && (
+              <div style={{ backgroundColor: "#fef2f2", border: "1px solid #fecaca", color: "#b91c1c", padding: "16px", borderRadius: "14px", textAlign: "center", marginBottom: "24px", fontWeight: 600 }}>
+                {lang === "hi" 
+                  ? "यह शिकायत संख्या नहीं मिली। कृपया सही आईडी दर्ज करें अथवा ऊपर दिए गए डेमो आईडी पर क्लिक करें।"
+                  : "Tracking ID not found. Please enter a valid token ID or click one of the sample tickets above."}
+              </div>
+            )}
+
+            {/* Tracked Record Card */}
             {searchResult && (
-              <div style={{ backgroundColor: "#ffffff", borderRadius: "24px", padding: "32px", border: "2px solid #e2c079", boxShadow: "0 15px 45px rgba(0,0,0,0.06)" }}>
+              <div style={{ backgroundColor: "#ffffff", borderRadius: "24px", padding: "clamp(20px, 4vw, 36px)", border: "1.5px solid #fde68a", boxShadow: "0 10px 30px rgba(217, 119, 6, 0.06)" }}>
                 
-                {/* Header Row */}
-                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", flexWrap: "wrap", gap: "14px", borderBottom: "1.5px solid #f3ece0", paddingBottom: "16px", marginBottom: "24px" }}>
+                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", flexWrap: "wrap", gap: "14px", borderBottom: "1px solid #fde68a", paddingBottom: "18px", marginBottom: "24px" }}>
                   <div>
-                    <span style={{ fontSize: "0.78rem", color: "#d97706", fontWeight: 700, textTransform: "uppercase" }}>
-                      शिकायत पंजीकरण संख्या (Token ID)
+                    <span style={{ color: "#d97706", fontWeight: 700, fontSize: "0.82rem", textTransform: "uppercase" }}>
+                      {lang === "hi" ? "शिकायत संख्या (Complaint ID)" : "Grievance Token ID"}
                     </span>
-                    <h3 style={{ fontSize: "1.85rem", fontWeight: 900, color: "#0e3d28", margin: "2px 0 0 0" }}>
+                    <h3 style={{ fontSize: "1.5rem", fontWeight: 800, color: "#451a03", margin: "2px 0 0 0" }}>
                       {searchResult.id}
                     </h3>
-                    <span style={{ fontSize: "0.82rem", color: "#6b7280" }}>दर्ज दिनांक: {searchResult.filedDate}</span>
                   </div>
 
-                  <div>
-                    <span style={{ padding: "6px 16px", borderRadius: "20px", fontSize: "0.85rem", fontWeight: 800, backgroundColor: searchResult.status === "resolved" ? "#dcfce7" : "#fef3c7", color: searchResult.status === "resolved" ? "#166534" : "#92400e", border: searchResult.status === "resolved" ? "1.5px solid #86efac" : "1.5px solid #fde68a", display: "inline-flex", alignItems: "center", gap: "6px" }}>
+                  <div style={{ textAlign: "right" }}>
+                    <span 
+                      style={{ 
+                        padding: "6px 14px", 
+                        borderRadius: "20px", 
+                        fontSize: "0.85rem", 
+                        fontWeight: 700,
+                        backgroundColor: searchResult.status === "resolved" ? "#dcfce7" : "#fef3c7",
+                        color: searchResult.status === "resolved" ? "#166534" : "#92400e",
+                        display: "inline-flex",
+                        alignItems: "center",
+                        gap: "6px"
+                      }}
+                    >
                       {searchResult.status === "resolved" ? <CheckCircle2 size={16} /> : <Clock size={16} />}
-                      {searchResult.status === "resolved" ? "समस्या समाधान पूर्ण (Resolved)" : "जांच / कार्य प्रगति पर"}
+                      {searchResult.status === "resolved" ? (lang === "hi" ? "समाधान पूर्ण (Resolved)" : "Resolved") : (lang === "hi" ? "कार्य प्रगति पर (In Progress)" : "In Progress")}
                     </span>
                   </div>
                 </div>
 
-                {/* 4-Step Stepper */}
-                <div style={{ marginBottom: "26px" }}>
-                  <strong style={{ fontSize: "0.95rem", color: "#0e3d28", display: "block", marginBottom: "14px" }}>
-                    समाधान प्रक्रिया प्रगति (Timeline):
-                  </strong>
-                  
-                  <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(160px, 1fr))", gap: "10px" }}>
+                {/* 4-Step Resolution Timeline */}
+                <div style={{ marginBottom: "32px" }}>
+                  <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 70px), 1fr))", gap: "10px", position: "relative" }}>
                     {[
-                      { step: 1, title: "शिकायत दर्ज", date: searchResult.filedDate, done: true },
-                      { step: 2, title: "अधिकारी नियुक्त", date: searchResult.assignedDate, done: searchResult.status !== "registered" },
-                      { step: 3, title: "स्थलीय निरीक्षण", date: searchResult.inspectionDate, done: searchResult.status === "inspecting" || searchResult.status === "resolved" },
-                      { step: 4, title: "समाधान पूर्ण", date: searchResult.resolvedDate || "प्रतीक्षारत", done: searchResult.status === "resolved" },
-                    ].map((s) => (
-                      <div key={s.step} style={{ backgroundColor: s.done ? "#f0fdf4" : "#f9fafb", border: s.done ? "1.5px solid #86efac" : "1px solid #e5e7eb", padding: "12px", borderRadius: "12px", textAlign: "center" }}>
-                        <div style={{ width: "28px", height: "28px", borderRadius: "50%", margin: "0 auto 6px auto", display: "flex", alignItems: "center", justifyContent: "center", fontWeight: 800, backgroundColor: s.done ? "#16a34a" : "#d1d5db", color: "#ffffff", fontSize: "0.85rem" }}>
-                          {s.done ? "✓" : s.step}
+                      { step: 1, title: lang === "hi" ? "शिकायत दर्ज" : "Logged", state: "completed" },
+                      { step: 2, title: lang === "hi" ? "अधिकारी नियुक्त" : "Assigned", state: searchResult.status !== "registered" ? "completed" : "current" },
+                      { step: 3, title: lang === "hi" ? "स्थलीय निरीक्षण" : "Inspecting", state: searchResult.status === "inspecting" || searchResult.status === "resolved" ? "completed" : "pending" },
+                      { step: 4, title: lang === "hi" ? "समाधान पूर्ण" : "Resolved", state: searchResult.status === "resolved" ? "completed" : "pending" },
+                    ].map((st) => (
+                      <div key={st.step} style={{ textAlign: "center" }}>
+                        <div 
+                          style={{ 
+                            width: "36px", 
+                            height: "36px", 
+                            borderRadius: "50%", 
+                            margin: "0 auto 8px auto", 
+                            display: "flex", 
+                            alignItems: "center", 
+                            justifyContent: "center",
+                            fontWeight: 800,
+                            fontSize: "0.9rem",
+                            backgroundColor: st.state === "completed" ? "#16a34a" : st.state === "current" ? "#d97706" : "#e5e7eb",
+                            color: st.state === "pending" ? "#9ca3af" : "#ffffff"
+                          }}
+                        >
+                          {st.state === "completed" ? "✓" : st.step}
                         </div>
-                        <strong style={{ fontSize: "0.82rem", color: s.done ? "#166534" : "#374151", display: "block" }}>{s.title}</strong>
-                        <span style={{ fontSize: "0.72rem", color: "#6b7280", display: "block" }}>{s.date}</span>
+                        <span style={{ fontSize: "0.76rem", fontWeight: 700, color: st.state === "completed" ? "#166534" : "#451a03", display: "block" }}>
+                          {st.title}
+                        </span>
                       </div>
                     ))}
                   </div>
                 </div>
 
-                {/* Citizen Details */}
-                <div style={{ backgroundColor: "#fdfbf7", border: "1px solid #f1ece1", borderRadius: "14px", padding: "18px", marginBottom: "20px" }}>
-                  <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))", gap: "12px", fontSize: "0.88rem", marginBottom: "14px" }}>
+                {/* Details Grid */}
+                <div style={{ backgroundColor: "#fffdfa", padding: "18px", borderRadius: "16px", border: "1px solid #fde68a", marginBottom: "20px" }}>
+                  <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 180px), 1fr))", gap: "14px", fontSize: "0.9rem" }}>
                     <div>
-                      <span style={{ fontSize: "0.76rem", color: "#6b7280", display: "block" }}>शिकायतकर्ता</span>
-                      <strong>{searchResult.name}</strong>
+                      <span style={{ color: "#78350f", display: "block", fontSize: "0.78rem" }}>
+                        {lang === "hi" ? "शिकायतकर्ता" : "Complainant"}
+                      </span>
+                      <strong style={{ color: "#451a03" }}>{searchResult.name}</strong>
                     </div>
                     <div>
-                      <span style={{ fontSize: "0.76rem", color: "#6b7280", display: "block" }}>वार्ड / क्षेत्र</span>
-                      <strong>{searchResult.ward}</strong>
+                      <span style={{ color: "#78350f", display: "block", fontSize: "0.78rem" }}>
+                        {lang === "hi" ? "वार्ड / टोला" : "Ward / Hamlet"}
+                      </span>
+                      <strong style={{ color: "#451a03" }}>{searchResult.ward}</strong>
                     </div>
                     <div>
-                      <span style={{ fontSize: "0.76rem", color: "#6b7280", display: "block" }}>श्रेणी</span>
+                      <span style={{ color: "#78350f", display: "block", fontSize: "0.78rem" }}>
+                        {lang === "hi" ? "श्रेणी" : "Category"}
+                      </span>
                       <strong style={{ color: "#d97706" }}>{searchResult.category}</strong>
                     </div>
+                    <div>
+                      <span style={{ color: "#78350f", display: "block", fontSize: "0.78rem" }}>
+                        {lang === "hi" ? "दर्ज दिनांक" : "Logged Date"}
+                      </span>
+                      <strong style={{ color: "#451a03" }}>{searchResult.filedDate}</strong>
+                    </div>
                   </div>
-                  <div style={{ borderTop: "1px solid #f3ece0", paddingTop: "10px" }}>
-                    <span style={{ fontSize: "0.76rem", color: "#6b7280", display: "block", marginBottom: "2px" }}>समस्या विवरण</span>
-                    <p style={{ margin: 0, fontSize: "0.92rem", color: "#374151", lineHeight: 1.5 }}>
+
+                  <div style={{ marginTop: "16px", borderTop: "1px solid #fde68a", paddingTop: "12px" }}>
+                    <span style={{ color: "#78350f", display: "block", fontSize: "0.78rem" }}>
+                      {lang === "hi" ? "विवरण" : "Problem Description"}
+                    </span>
+                    <p style={{ margin: "4px 0 0 0", color: "#57534e", fontSize: "0.92rem", lineHeight: 1.5 }}>
                       {searchResult.desc}
                     </p>
                   </div>
-                </div>
 
-                {/* Assigned Officer Box */}
-                <div style={{ backgroundColor: "#eff6ff", border: "1.5px solid #bfdbfe", borderRadius: "14px", padding: "18px" }}>
-                  <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", flexWrap: "wrap", gap: "10px", marginBottom: "10px" }}>
-                    <div>
-                      <span style={{ fontSize: "0.75rem", color: "#2563eb", fontWeight: 700, textTransform: "uppercase" }}>
-                        नियुक्त नोडल अधिकारी (Assigned Nodal Officer)
-                      </span>
-                      <h4 style={{ fontSize: "1.15rem", fontWeight: 800, color: "#1e40af", margin: "2px 0 0 0" }}>
-                        {searchResult.assignedOfficer}
-                      </h4>
-                      <span style={{ fontSize: "0.82rem", color: "#4b5563" }}>
-                        {searchResult.officerRole}
-                      </span>
-                    </div>
-
-                    <a
-                      href={`tel:${searchResult.officerPhone}`}
-                      className="btn btn-secondary"
-                      style={{ padding: "6px 14px", fontSize: "0.82rem", borderRadius: "8px", borderColor: "#2563eb", color: "#1e40af" }}
-                    >
-                      <Phone size={13} />
-                      <span>{searchResult.officerPhone}</span>
-                    </a>
+                  <div style={{ marginTop: "14px", backgroundColor: "#fffbeb", border: "1px solid #fde68a", padding: "10px 14px", borderRadius: "10px", fontSize: "0.85rem", color: "#78350f" }}>
+                    <strong>{lang === "hi" ? "प्रभारी अधिकारी:" : "Assigned Officer:"}</strong> {searchResult.assignedOfficer} ({searchResult.officerRole}) • 📞 {searchResult.officerPhone}
                   </div>
 
                   {searchResult.resolutionRemarks && (
-                    <div style={{ borderTop: "1px solid #dbeafe", paddingTop: "10px" }}>
-                      <span style={{ fontSize: "0.78rem", color: "#1e40af", fontWeight: 700, display: "block" }}>
-                        कार्रवाई एवं अंतिम निस्तारण रिपोर्ट:
-                      </span>
-                      <p style={{ margin: "3px 0 0 0", color: "#1f2937", fontSize: "0.9rem", lineHeight: 1.5 }}>
-                        {searchResult.resolutionRemarks}
-                      </p>
+                    <div style={{ marginTop: "10px", backgroundColor: "#ecfdf5", border: "1px solid #a7f3d0", padding: "10px 14px", borderRadius: "10px", fontSize: "0.85rem", color: "#166534" }}>
+                      <strong>{lang === "hi" ? "निस्तारण आख्या:" : "Resolution Remarks:"}</strong> {searchResult.resolutionRemarks}
                     </div>
                   )}
                 </div>
@@ -614,6 +579,83 @@ export default function SamasyaPage() {
         )}
 
       </div>
+
+      {/* Instant Success Modal */}
+      {createdToken && (
+        <div 
+          style={{ 
+            position: "fixed", 
+            inset: 0, 
+            backgroundColor: "rgba(0,0,0,0.75)", 
+            zIndex: 1000, 
+            display: "flex", 
+            alignItems: "center", 
+            justifyContent: "center", 
+            padding: "16px" 
+          }}
+        >
+          <div 
+            style={{ 
+              backgroundColor: "#ffffff", 
+              maxWidth: "500px", 
+              width: "100%", 
+              borderRadius: "24px", 
+              padding: "clamp(20px, 4vw, 34px)", 
+              textAlign: "center",
+              boxShadow: "0 25px 50px rgba(0,0,0,0.3)",
+              border: "1.5px solid #fde68a"
+            }}
+          >
+            <div style={{ width: "64px", height: "64px", borderRadius: "50%", backgroundColor: "#fef3c7", color: "#d97706", display: "flex", alignItems: "center", justifyContent: "center", margin: "0 auto 16px auto" }}>
+              <CheckCircle2 size={36} />
+            </div>
+
+            <h3 style={{ fontSize: "1.45rem", fontWeight: 800, color: "#451a03", marginBottom: "8px" }}>
+              {lang === "hi" ? "आपकी शिकायत दर्ज कर ली गई है!" : "Grievance Logged Successfully!"}
+            </h3>
+
+            <p style={{ fontSize: "0.9rem", color: "#78350f", marginBottom: "18px" }}>
+              {lang === "hi" 
+                ? "कृपया इस टोकन संख्या को नोट कर लें, आप स्थिति जांचने के लिए इसका उपयोग कर सकते हैं।"
+                : "Please note down this token number to track resolution progress on the portal."}
+            </p>
+
+            <div style={{ backgroundColor: "#fffbeb", padding: "14px 20px", borderRadius: "14px", border: "1.5px solid #fde68a", marginBottom: "24px" }}>
+              <span style={{ fontSize: "0.78rem", color: "#92400e", fontWeight: 700, display: "block" }}>
+                {lang === "hi" ? "शिकायत संख्या (Complaint ID)" : "Tracking Token ID"}
+              </span>
+              <span style={{ fontSize: "1.8rem", fontWeight: 900, color: "#d97706", letterSpacing: "1px" }}>
+                {createdToken}
+              </span>
+            </div>
+
+            <div style={{ display: "flex", gap: "12px", justifyContent: "center", flexWrap: "wrap" }}>
+              <button
+                onClick={() => {
+                  const tok = createdToken;
+                  setCreatedToken(null);
+                  setActiveTab("track");
+                  setSearchId(tok);
+                  handleLookup(tok);
+                }}
+                className="btn btn-primary"
+                style={{ padding: "10px 22px", fontSize: "0.9rem" }}
+              >
+                {lang === "hi" ? "स्थिति जांचें" : "Track Status Now"}
+              </button>
+              <button
+                onClick={() => setCreatedToken(null)}
+                className="btn btn-secondary"
+                style={{ padding: "10px 20px", fontSize: "0.9rem", border: "1px solid #fde68a" }}
+              >
+                {lang === "hi" ? "बंद करें" : "Close"}
+              </button>
+            </div>
+
+          </div>
+        </div>
+      )}
+
     </div>
   );
 }

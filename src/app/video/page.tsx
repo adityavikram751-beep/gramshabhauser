@@ -8,15 +8,8 @@ import {
   Play, 
   Pause, 
   Tv, 
-  Maximize2, 
-  PlusCircle, 
-  Check, 
-  Share2, 
-  Film,
-  Sparkles,
-  ExternalLink
+  PlusCircle
 } from "lucide-react"; 
-
 
 // Standalone Instagram Icon
 const InstagramIcon: React.FC<{ size?: number; color?: string }> = ({ size = 20, color = "currentColor" }) => (
@@ -47,42 +40,72 @@ export default function VideoTourPage() {
   const videoTracks = [
     {
       id: "drone",
-      title: "गरायें गाँव का विहंगम ड्रोन दर्शन (4K Aerial Tour)",
-      category: "हवाई दृश्य (Drone)",
-      duration: "4:15 मिनट",
-      desc: "लहलहाते सरसों व गेहूं के खेत, मुख्य प्रवेश द्वार (Swagat Dwar), पक्की सड़कें, अमृत सरोवर और गरायें गाँव की हरियाली का मनोरम विहंगम दृश्य।",
+      title: { 
+        hi: "गरायें गाँव का विहंगम ड्रोन दर्शन (4K Aerial Tour)", 
+        en: "Panoramic Drone Tour of Garayen Village (4K Aerial)" 
+      },
+      category: { hi: "हवाई दृश्य (Drone)", en: "Aerial View (Drone)" },
+      duration: { hi: "4:15 मिनट", en: "4:15 min" },
+      desc: { 
+        hi: "लहलहाते सरसों व गेहूं के खेत, मुख्य प्रवेश द्वार (Swagat Dwar), पक्की सड़कें, अमृत सरोवर और गरायें गाँव की हरियाली का मनोरम विहंगम दृश्य।",
+        en: "Lush mustard and wheat fields, grand entrance gateway, paved roads, Amrit Sarovar pond, and scenic green landscapes of Garayen village."
+      },
       poster: "/images/hero.jpg",
     },
     {
       id: "durgapuja",
-      title: "सुल्तानपुर-लंभुआ ऐतिहासिक दुर्गा पूजा व विसर्जन शोभायात्रा",
-      category: "सांस्कृतिक उत्सव",
-      duration: "6:40 मिनट",
-      desc: "पश्चिम बंगाल जैसी प्रसिद्ध सुल्तानपुर दुर्गा पूजा के भव्य पंडाल, अलौकिक विग्रह और पवित्र गोमती तट (धोपाप धाम) पर महाविसर्जन की झांकियां।",
+      title: { 
+        hi: "सुल्तानपुर-लंभुआ ऐतिहासिक दुर्गा पूजा व विसर्जन शोभायात्रा", 
+        en: "Historic Sultanpur-Lambhua Durga Puja & Grand Immersion Procession" 
+      },
+      category: { hi: "सांस्कृतिक उत्सव", en: "Cultural Festival" },
+      duration: { hi: "6:40 मिनट", en: "6:40 min" },
+      desc: { 
+        hi: "पश्चिम बंगाल जैसी प्रसिद्ध सुल्तानपुर दुर्गा पूजा के भव्य पंडाल, अलौकिक विग्रह और पवित्र गोमती तट (धोपाप धाम) पर महाविसर्जन की झांकियां।",
+        en: "Celebrated grand pandals of Sultanpur Durga Puja, divine idols, and grand immersion carnival on the sacred banks of Gomti River at Dhopap."
+      },
       poster: "/images/durgapuja.jpg",
     },
     {
       id: "mandir",
-      title: "प्राचीन सिद्धेश्वर महादेव मंदिर गरायें - महाआरती व दीपोत्सव",
-      category: "धार्मिक दर्शन",
-      duration: "3:50 मिनट",
-      desc: "पावन सरोवर तट पर स्थित स्वयंभू शिवलिंग, सावन मास की कांवड़ यात्रा और देव दीपावली पर 5,100 दीपों का महादीपोत्सव।",
+      title: { 
+        hi: "प्राचीन सिद्धेश्वर महादेव मंदिर गरायें - महाआरती व दीपोत्सव", 
+        en: "Ancient Siddheshwar Mahadev Temple Garayen - Maha Aarti & Deepotsav" 
+      },
+      category: { hi: "धार्मिक दर्शन", en: "Devotional Heritage" },
+      duration: { hi: "3:50 मिनट", en: "3:50 min" },
+      desc: { 
+        hi: "पावन सरोवर तट पर स्थित स्वयंभू शिवलिंग, सावन मास की कांवड़ यात्रा और देव दीपावली पर 5,100 दीपों का महादीपोत्सव।",
+        en: "Swayambhu Shivling on sacred pond banks, holy Shravan Kanwar yatra, and grand celebration of 5,100 earthen lamps on Dev Deepawali."
+      },
       poster: "/images/mandir.jpg",
     },
     {
       id: "school",
-      title: "109 वर्ष पुराना प्राथमिक विद्यालय गरायें (स्थापना: 1917 ई.)",
-      category: "ऐतिहासिक धरोहर",
-      duration: "5:10 मिनट",
-      desc: "ब्रिटिश काल 1917 से संचालित ऐतिहासिक प्राथमिक विद्यालय, प्रांगण, खेलकूद प्रतियोगिताएं और सुल्तानपुर के होनहार विद्यार्थियों की झलक।",
+      title: { 
+        hi: "109 वर्ष पुराना प्राथमिक विद्यालय गरायें (स्थापना: 1917 ई.)", 
+        en: "109-Year-Old Primary School Garayen (Established 1917 AD)" 
+      },
+      category: { hi: "ऐतिहासिक धरोहर", en: "Historical Landmark" },
+      duration: { hi: "5:10 मिनट", en: "5:10 min" },
+      desc: { 
+        hi: "ब्रिटिश काल 1917 से संचालित ऐतिहासिक प्राथमिक विद्यालय, प्रांगण, खेलकूद प्रतियोगिताएं और सुल्तानपुर के होनहार विद्यार्थियों की झलक।",
+        en: "Historic school operational since British era 1917, lush playground, sports meets, and glimpses of bright students of Sultanpur district."
+      },
       poster: "/images/dwar.jpg",
     },
     {
       id: "market",
-      title: "लंभुआ-गरायें का साप्ताहिक ग्रामीण हाट बाज़ार मेला",
-      category: "ग्रामीण जनजीवन",
-      duration: "4:30 मिनट",
-      desc: "शुद्ध देसी घी की गरमा-गरम जलेबी, ताज़ी हरी सब्जियाँ, मिट्टी के बर्तन और पारंपरिक ग्रामीण मेल-मिलाप का जीवंत दृश्य।",
+      title: { 
+        hi: "लंभुआ-गरायें का साप्ताहिक ग्रामीण हाट बाज़ार मेला", 
+        en: "Weekly Rural Haat & Farmers Market Fair at Lambhua-Garayen" 
+      },
+      category: { hi: "ग्रामीण जनजीवन", en: "Rural Village Life" },
+      duration: { hi: "4:30 मिनट", en: "4:30 min" },
+      desc: { 
+        hi: "शुद्ध देसी घी की गरमा-गरम जलेबी, ताज़ी हरी सब्जियाँ, मिट्टी के बर्तन और पारंपरिक ग्रामीण मेल-मिलाप का जीवंत दृश्य।",
+        en: "Fresh hot jalebis, farm-fresh vegetables, earthen pottery, and vibrant community culture of the traditional weekly village fair."
+      },
       poster: "/images/market.jpg",
     }
   ];
@@ -106,40 +129,46 @@ export default function VideoTourPage() {
   };
 
   return (
-    <div style={{ backgroundColor: "#0b1e14", minHeight: "85vh", color: "#f3f4f6", padding: "60px 0 90px 0" }}>
+    <div style={{ backgroundColor: "#291204", minHeight: "85vh", color: "#fef3c7", padding: "40px 0 80px 0" }}>
       <div className="container">
         
         {/* Breadcrumb Navigation */}
-        <div style={{ display: "flex", alignItems: "center", gap: "8px", fontSize: "0.85rem", color: "#9ca3af", marginBottom: "24px" }}>
-          <Link href="/" style={{ color: "#fbbf24", fontWeight: 600 }}>मुख्य पृष्ठ</Link>
+        <div style={{ display: "flex", alignItems: "center", gap: "8px", fontSize: "0.85rem", color: "#fbbf24", marginBottom: "20px" }}>
+          <Link href="/" style={{ color: "#fbbf24", fontWeight: 700, textDecoration: "none" }}>
+            {lang === "hi" ? "मुख्य पृष्ठ" : "Home"}
+          </Link>
           <span>/</span>
-          <span style={{ color: "#d1d5db", fontWeight: 700 }}>गाँव दर्शन व ड्रोन वीडियो</span>
+          <span style={{ color: "#ffffff", fontWeight: 700 }}>
+            {lang === "hi" ? "गाँव दर्शन व ड्रोन वीडियो" : "Village Tour & Drone Videos"}
+          </span>
         </div>
 
         {/* Page Top Header */}
-        <div style={{ maxWidth: "800px", margin: "0 auto 36px auto", textAlign: "center" }}>
-          <div className="vip-badge" style={{ backgroundColor: "rgba(251,191,36,0.15)", borderColor: "rgba(251,191,36,0.3)", color: "#fbbf24" }}>
+        <div style={{ maxWidth: "800px", margin: "0 auto 32px auto", textAlign: "center" }}>
+          <div className="vip-badge" style={{ backgroundColor: "rgba(217,119,6,0.2)", borderColor: "#d97706", color: "#fbbf24" }}>
             <Tv size={16} />
-            <span>4K अल्ट्रा एचडी वीडियो दर्शन</span>
+            <span>{lang === "hi" ? "4K अल्ट्रा एचडी वीडियो दर्शन" : "4K Ultra HD Video Tour"}</span>
           </div>
-          <h1 style={{ fontSize: "clamp(2rem, 4vw, 2.8rem)", fontWeight: 800, color: "#ffffff", lineHeight: 1.2, marginBottom: "12px" }}>
-            गरायें (लंभुआ) विहंगम वीडियो व ड्रोन दर्शन
+          <h1 style={{ fontSize: "clamp(1.75rem, 4vw, 2.7rem)", fontWeight: 800, color: "#ffffff", lineHeight: 1.25, marginBottom: "12px" }}>
+            {lang === "hi" ? "गरायें (लंभुआ) विहंगम वीडियो व ड्रोन दर्शन" : "Garayen (Lambhua) Aerial & Scenic Video Tour"}
           </h1>
-          <p style={{ fontSize: "1.05rem", color: "#9ca3af", lineHeight: 1.6 }}>
-            घर बैठे गरायें गाँव के प्राकृतिक सौंदर्य, लहलहाते खेतों, ऐतिहासिक 1917 विद्यालय और विख्यात लंभुआ दुर्गा पूजा के दिव्य दर्शन करें।
+          <p style={{ fontSize: "clamp(0.92rem, 1.8vw, 1.05rem)", color: "#fef3c7", opacity: 0.9, lineHeight: 1.6 }}>
+            {lang === "hi" 
+              ? "घर बैठे गरायें गाँव के प्राकृतिक सौंदर्य, लहलहाते खेतों, ऐतिहासिक 1917 विद्यालय और विख्यात लंभुआ दुर्गा पूजा के दिव्य दर्शन करें।"
+              : "Experience the scenic beauty, lush mustard and wheat fields, 1917 heritage school, and famous Lambhua Durga Puja right from your screen."}
           </p>
         </div>
 
-        {/* Video Player Display */}
+        {/* Video Player Display - Responsive */}
         <div 
           style={{ 
             maxWidth: "960px", 
-            margin: "0 auto 40px auto", 
-            backgroundColor: "#06150d", 
-            borderRadius: "24px", 
+            margin: "0 auto 36px auto", 
+            backgroundColor: "#180a02", 
+            borderRadius: "22px", 
             overflow: "hidden", 
-            border: "2px solid #d4af37",
-            boxShadow: "0 25px 60px rgba(0,0,0,0.5)" 
+            border: "2.5px solid #d97706",
+            boxShadow: "0 25px 60px rgba(0,0,0,0.6)" 
           }}
         >
           {/* Media Frame */}
@@ -156,7 +185,7 @@ export default function VideoTourPage() {
               <>
                 <Image
                   src={currentTrack.poster}
-                  alt={currentTrack.title}
+                  alt={lang === "hi" ? currentTrack.title.hi : currentTrack.title.en}
                   fill
                   style={{ objectFit: "cover", opacity: isPlaying ? 0.3 : 0.85 }}
                   priority
@@ -172,7 +201,7 @@ export default function VideoTourPage() {
                     alignItems: "center", 
                     justifyContent: "center",
                     background: isPlaying ? "none" : "linear-gradient(to top, rgba(0,0,0,0.85) 0%, transparent 60%)",
-                    padding: "24px"
+                    padding: "20px"
                   }}
                 >
                   {!isPlaying && (
@@ -180,46 +209,46 @@ export default function VideoTourPage() {
                       type="button"
                       onClick={() => setIsPlaying(true)}
                       style={{
-                        width: "84px",
-                        height: "84px",
+                        width: "76px",
+                        height: "76px",
                         borderRadius: "50%",
                         backgroundColor: "#d97706",
-                        border: "4px solid #ffffff",
+                        border: "3.5px solid #ffffff",
                         color: "#ffffff",
                         display: "flex",
                         alignItems: "center",
                         justifyContent: "center",
                         cursor: "pointer",
                         boxShadow: "0 0 35px rgba(217,119,6,0.8)",
-                        marginBottom: "16px",
+                        marginBottom: "14px",
                         transition: "transform 0.2s ease"
                       }}
-                      onMouseEnter={e => e.currentTarget.style.transform = "scale(1.1)"}
+                      onMouseEnter={e => e.currentTarget.style.transform = "scale(1.08)"}
                       onMouseLeave={e => e.currentTarget.style.transform = "scale(1)"}
                       aria-label="Play video"
                     >
-                      <Play size={40} style={{ marginLeft: "4px" }} />
+                      <Play size={36} fill="#ffffff" style={{ marginLeft: "4px" }} />
                     </button>
                   )}
 
                   {!isPlaying && (
                     <div style={{ textAlign: "center" }}>
-                      <span style={{ backgroundColor: "#d97706", color: "#ffffff", fontSize: "0.78rem", fontWeight: 700, padding: "3px 10px", borderRadius: "20px", display: "inline-block", marginBottom: "8px" }}>
-                        {currentTrack.category} • {currentTrack.duration}
+                      <span style={{ backgroundColor: "#d97706", color: "#ffffff", fontSize: "0.78rem", fontWeight: 700, padding: "3px 12px", borderRadius: "20px", display: "inline-block", marginBottom: "6px" }}>
+                        {lang === "hi" ? currentTrack.category.hi : currentTrack.category.en} • {lang === "hi" ? currentTrack.duration.hi : currentTrack.duration.en}
                       </span>
-                      <h2 style={{ fontSize: "1.6rem", fontWeight: 800, color: "#ffffff", maxWidth: "700px", margin: "0 auto" }}>
-                        {currentTrack.title}
+                      <h2 style={{ fontSize: "clamp(1.15rem, 3.2vw, 1.55rem)", fontWeight: 800, color: "#ffffff", maxWidth: "700px", margin: "0 auto" }}>
+                        {lang === "hi" ? currentTrack.title.hi : currentTrack.title.en}
                       </h2>
                     </div>
                   )}
 
                   {isPlaying && (
-                    <div style={{ textAlign: "center", padding: "20px", backgroundColor: "rgba(0,0,0,0.7)", borderRadius: "16px" }}>
-                      <p style={{ fontSize: "1.1rem", color: "#fbbf24", fontWeight: 700, margin: "0 0 10px 0" }}>
-                        ▶ वीडियो प्रसारण प्रारंभ...
+                    <div style={{ textAlign: "center", padding: "18px", backgroundColor: "rgba(0,0,0,0.75)", borderRadius: "16px", border: "1px solid #d97706" }}>
+                      <p style={{ fontSize: "1.05rem", color: "#fbbf24", fontWeight: 700, margin: "0 0 8px 0" }}>
+                        {lang === "hi" ? "▶ वीडियो प्रसारण प्रारंभ..." : "▶ Video Broadcast Active..."}
                       </p>
-                      <p style={{ fontSize: "0.9rem", color: "#d1d5db", maxWidth: "550px", margin: "0 auto 16px auto" }}>
-                        {currentTrack.desc}
+                      <p style={{ fontSize: "0.88rem", color: "#e5e7eb", maxWidth: "550px", margin: "0 auto 14px auto" }}>
+                        {lang === "hi" ? currentTrack.desc.hi : currentTrack.desc.en}
                       </p>
                       <button
                         onClick={() => setIsPlaying(false)}
@@ -227,7 +256,7 @@ export default function VideoTourPage() {
                         style={{ padding: "8px 18px", fontSize: "0.85rem", borderRadius: "8px" }}
                       >
                         <Pause size={14} />
-                        <span>रोकें (Pause)</span>
+                        <span>{lang === "hi" ? "रोकें (Pause)" : "Pause Video"}</span>
                       </button>
                     </div>
                   )}
@@ -237,16 +266,16 @@ export default function VideoTourPage() {
           </div>
 
           {/* Video Metadata Row */}
-          <div style={{ padding: "24px 30px", borderTop: "1px solid rgba(255,255,255,0.1)", display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: "16px" }}>
+          <div style={{ padding: "20px 24px", borderTop: "1px solid rgba(251,191,36,0.15)", display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: "14px" }}>
             <div>
-              <span style={{ fontSize: "0.8rem", color: "#fbbf24", fontWeight: 700, textTransform: "uppercase" }}>
-                वर्तमान चयनित वीडियो
+              <span style={{ fontSize: "0.76rem", color: "#fbbf24", fontWeight: 700, textTransform: "uppercase" }}>
+                {lang === "hi" ? "वर्तमान चयनित वीडियो" : "Currently Selected Video"}
               </span>
-              <h3 style={{ fontSize: "1.3rem", fontWeight: 800, color: "#ffffff", margin: "2px 0 6px 0" }}>
-                {currentTrack.title}
+              <h3 style={{ fontSize: "1.2rem", fontWeight: 800, color: "#ffffff", margin: "2px 0 4px 0" }}>
+                {lang === "hi" ? currentTrack.title.hi : currentTrack.title.en}
               </h3>
-              <p style={{ fontSize: "0.88rem", color: "#9ca3af", margin: 0, maxWidth: "600px" }}>
-                {currentTrack.desc}
+              <p style={{ fontSize: "0.86rem", color: "#d1d5db", margin: 0, maxWidth: "600px" }}>
+                {lang === "hi" ? currentTrack.desc.hi : currentTrack.desc.en}
               </p>
             </div>
 
@@ -258,30 +287,31 @@ export default function VideoTourPage() {
                 style={{
                   display: "inline-flex",
                   alignItems: "center",
-                  gap: "8px",
-                  background: "linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%)",
+                  gap: "6px",
+                  background: "linear-gradient(135deg, #d97706, #f59e0b)",
                   color: "#ffffff",
                   padding: "10px 18px",
-                  borderRadius: "12px",
-                  fontSize: "0.88rem",
+                  borderRadius: "10px",
+                  fontSize: "0.84rem",
                   fontWeight: 700,
-                  textDecoration: "none"
+                  textDecoration: "none",
+                  boxShadow: "0 2px 10px rgba(217,119,6,0.4)"
                 }}
               >
-                <InstagramIcon size={18} />
-                <span>@garaye_garawa रील्स देखें</span>
+                <InstagramIcon size={16} />
+                <span>{lang === "hi" ? "@garaye_garawa रील्स देखें" : "Watch @garaye_garawa Reels"}</span>
               </a>
             </div>
           </div>
         </div>
 
-        {/* Video Playlist Grid */}
-        <div style={{ maxWidth: "960px", margin: "0 auto 50px auto" }}>
-          <h3 style={{ fontSize: "1.3rem", fontWeight: 800, color: "#ffffff", marginBottom: "18px" }}>
-            गाँव वीडियो लाइब्रेरी (All Video Clips)
+        {/* Video Playlist Grid - Responsive */}
+        <div style={{ maxWidth: "960px", margin: "0 auto 40px auto" }}>
+          <h3 style={{ fontSize: "1.25rem", fontWeight: 800, color: "#fbbf24", marginBottom: "16px" }}>
+            {lang === "hi" ? "गाँव वीडियो लाइब्रेरी (All Video Clips)" : "Village Video Library (All Clips)"}
           </h3>
 
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: "18px" }}>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 260px), 1fr))", gap: "16px" }}>
             {videoTracks.map((vt) => (
               <div
                 key={vt.id}
@@ -291,8 +321,8 @@ export default function VideoTourPage() {
                   setIsPlaying(true);
                 }}
                 style={{
-                  backgroundColor: activeVideoId === vt.id ? "#143a25" : "#0d261a",
-                  border: activeVideoId === vt.id ? "2px solid #fbbf24" : "1px solid rgba(255,255,255,0.1)",
+                  backgroundColor: activeVideoId === vt.id ? "#3d1b06" : "#1a0b02",
+                  border: activeVideoId === vt.id ? "2px solid #d97706" : "1px solid rgba(251,191,36,0.18)",
                   borderRadius: "16px",
                   overflow: "hidden",
                   cursor: "pointer",
@@ -302,24 +332,24 @@ export default function VideoTourPage() {
                 <div style={{ position: "relative", width: "100%", height: "140px" }}>
                   <Image
                     src={vt.poster}
-                    alt={vt.title}
+                    alt={lang === "hi" ? vt.title.hi : vt.title.en}
                     fill
                     style={{ objectFit: "cover" }}
                   />
-                  <div style={{ position: "absolute", bottom: "8px", right: "8px", backgroundColor: "rgba(0,0,0,0.8)", color: "#ffffff", fontSize: "0.72rem", padding: "2px 8px", borderRadius: "4px", fontWeight: 700 }}>
-                    {vt.duration}
+                  <div style={{ position: "absolute", bottom: "8px", right: "8px", backgroundColor: "#d97706", color: "#ffffff", fontSize: "0.72rem", padding: "2px 8px", borderRadius: "4px", fontWeight: 700 }}>
+                    {lang === "hi" ? vt.duration.hi : vt.duration.en}
                   </div>
                 </div>
 
                 <div style={{ padding: "14px" }}>
-                  <span style={{ fontSize: "0.75rem", color: "#fbbf24", fontWeight: 700 }}>
-                    {vt.category}
+                  <span style={{ fontSize: "0.74rem", color: "#fbbf24", fontWeight: 700 }}>
+                    {lang === "hi" ? vt.category.hi : vt.category.en}
                   </span>
-                  <h4 style={{ fontSize: "0.95rem", fontWeight: 700, color: "#ffffff", margin: "4px 0 6px 0", lineHeight: 1.3 }}>
-                    {vt.title}
+                  <h4 style={{ fontSize: "0.92rem", fontWeight: 700, color: "#ffffff", margin: "3px 0 5px 0", lineHeight: 1.3 }}>
+                    {lang === "hi" ? vt.title.hi : vt.title.en}
                   </h4>
-                  <span style={{ fontSize: "0.78rem", color: "#10b981", fontWeight: 600 }}>
-                    ▶ अभी देखें
+                  <span style={{ fontSize: "0.78rem", color: "#fbbf24", fontWeight: 700 }}>
+                    {lang === "hi" ? "▶ अभी देखें" : "▶ Watch Now"}
                   </span>
                 </div>
               </div>
@@ -332,23 +362,27 @@ export default function VideoTourPage() {
           style={{ 
             maxWidth: "760px", 
             margin: "0 auto", 
-            backgroundColor: "#0d261a", 
+            backgroundColor: "#1a0b02", 
             borderRadius: "20px", 
-            padding: "28px", 
-            border: "1px solid rgba(251,191,36,0.3)",
+            padding: "clamp(18px, 4vw, 26px)", 
+            border: "1.5px solid #d97706",
             textAlign: "center" 
           }}
         >
-          <div className="vip-badge" style={{ backgroundColor: "rgba(251,191,36,0.15)", borderColor: "rgba(251,191,36,0.3)", color: "#fbbf24", margin: "0 auto 12px auto" }}>
+          <div className="vip-badge" style={{ backgroundColor: "rgba(217,119,6,0.2)", borderColor: "#d97706", color: "#fbbf24", margin: "0 auto 12px auto" }}>
             <PlusCircle size={15} />
-            <span>कस्टम वीडियो लिंक जोड़ें</span>
+            <span>{lang === "hi" ? "कस्टम वीडियो लिंक जोड़ें" : "Add Custom Video Link"}</span>
           </div>
 
-          <h3 style={{ fontSize: "1.3rem", fontWeight: 800, color: "#ffffff", marginBottom: "6px" }}>
-            गरायें का कोई भी YouTube अथवा Instagram वीडियो यहाँ देखें
+          <h3 style={{ fontSize: "1.25rem", fontWeight: 800, color: "#ffffff", marginBottom: "6px" }}>
+            {lang === "hi" 
+              ? "गरायें का कोई भी YouTube अथवा Instagram वीडियो यहाँ देखें" 
+              : "Play Any Garayen YouTube or Instagram Video Here"}
           </h3>
-          <p style={{ fontSize: "0.88rem", color: "#9ca3af", maxWidth: "560px", margin: "0 auto 20px auto" }}>
-            यदि आपके पास गरायें या लंभुआ का कोई यूट्यूब वीडियो लिंक है, तो उसे यहाँ पेस्ट करें और तुरंत बड़ी स्क्रीन पर देखें:
+          <p style={{ fontSize: "0.86rem", color: "#d1d5db", maxWidth: "560px", margin: "0 auto 18px auto" }}>
+            {lang === "hi" 
+              ? "यदि आपके पास गरायें या लंभुआ का कोई यूट्यूब वीडियो लिंक है, तो उसे यहाँ पेस्ट करें और तुरंत बड़ी स्क्रीन पर देखें:"
+              : "Have a YouTube or reel link of Garayen / Lambhua? Paste it below to watch directly on the player:"}
           </p>
 
           <form onSubmit={handleCustomEmbed} style={{ display: "flex", gap: "10px", flexWrap: "wrap", justifyContent: "center" }}>
@@ -359,24 +393,24 @@ export default function VideoTourPage() {
               onChange={(e) => setCustomUrl(e.target.value)}
               placeholder="https://www.youtube.com/watch?v=..."
               style={{
-                flex: "1 1 300px",
+                flex: "1 1 240px",
                 maxWidth: "460px",
-                padding: "12px 16px",
-                borderRadius: "12px",
-                border: "1.5px solid rgba(255,255,255,0.2)",
-                backgroundColor: "#06150d",
+                padding: "11px 15px",
+                borderRadius: "10px",
+                border: "1.5px solid rgba(251,191,36,0.3)",
+                backgroundColor: "#0d0401",
                 color: "#ffffff",
-                fontSize: "0.95rem",
+                fontSize: "0.92rem",
                 outline: "none"
               }}
             />
             <button
               type="submit"
               className="btn btn-gold"
-              style={{ padding: "0 24px", borderRadius: "12px", fontSize: "0.95rem" }}
+              style={{ padding: "0 22px", borderRadius: "10px", fontSize: "0.92rem" }}
             >
               <Play size={16} />
-              <span>स्क्रीन पर चलाएं</span>
+              <span>{lang === "hi" ? "स्क्रीन पर चलाएं" : "Play on Screen"}</span>
             </button>
           </form>
         </div>

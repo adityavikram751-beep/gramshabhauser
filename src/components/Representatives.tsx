@@ -31,9 +31,15 @@ export const Representatives: React.FC = () => {
       whatsapp: "919415012345",
       email: "mla.lambhua@up.gov.in",
       msg: t("vidhayak_msg"),
-      term: "18वीं उत्तर प्रदेश विधानसभा (2022 - 2027)",
+      term: {
+        hi: "18वीं उत्तर प्रदेश विधानसभा (2022 - 2027)",
+        en: "18th Uttar Pradesh Legislative Assembly (2022 - 2027)"
+      },
       isKey: true,
-      tag: "क्षेत्रीय विधायक (190 लंभुआ)",
+      tag: {
+        hi: "क्षेत्रीय विधायक (190 लंभुआ)",
+        en: "MLA (190 Lambhua Constituency)"
+      },
     },
     {
       id: "sansad",
@@ -45,9 +51,15 @@ export const Representatives: React.FC = () => {
       whatsapp: "919839054321",
       email: "mp.sultanpur@sansad.nic.in",
       msg: t("sansad_msg"),
-      term: "18वीं लोकसभा सदस्य (2024 - 2029)",
+      term: {
+        hi: "18वीं लोकसभा सदस्य (2024 - 2029)",
+        en: "Member of Parliament, 18th Lok Sabha (2024 - 2029)"
+      },
       isKey: true,
-      tag: "माननीय सांसद (सुल्तानपुर)",
+      tag: {
+        hi: "माननीय सांसद (सुल्तानपुर)",
+        en: "Member of Parliament (Sultanpur)"
+      },
     },
     {
       id: "pradhan",
@@ -59,9 +71,15 @@ export const Representatives: React.FC = () => {
       whatsapp: "919451024891",
       email: "pradhan.garayen@up.gov.in",
       msg: t("pradhan_msg"),
-      term: "त्रिस्तरीय पंचायत कार्यकाल (2021 - 2026)",
+      term: {
+        hi: "त्रिस्तरीय पंचायत कार्यकाल (2021 - 2026)",
+        en: "Three-Tier Panchayat Tenure (2021 - 2026)"
+      },
       isKey: true,
-      tag: "ग्राम प्रधान (प्रथम नागरिक)",
+      tag: {
+        hi: "ग्राम प्रधान (प्रथम नागरिक)",
+        en: "Gram Pradhan (First Citizen)"
+      },
     },
     {
       id: "pramukh",
@@ -73,9 +91,15 @@ export const Representatives: React.FC = () => {
       whatsapp: "919792067890",
       email: "pramukh.lambhua@up.gov.in",
       msg: t("pramukh_msg"),
-      term: "क्षेत्र पंचायत प्रमुख (2021 - 2026)",
+      term: {
+        hi: "क्षेत्र पंचायत प्रमुख (2021 - 2026)",
+        en: "Block Panchayat Chief (2021 - 2026)"
+      },
       isKey: true,
-      tag: "ब्लॉक प्रमुख (लंभुआ)",
+      tag: {
+        hi: "ब्लॉक प्रमुख (लंभुआ)",
+        en: "Block Pramukh (Lambhua)"
+      },
     },
     {
       id: "sachiv",
@@ -87,9 +111,15 @@ export const Representatives: React.FC = () => {
       whatsapp: "919125045678",
       email: "vdo.garayen@up.gov.in",
       msg: t("sachiv_msg"),
-      term: "पंचायती राज प्रशासनिक सेवा",
+      term: {
+        hi: "पंचायती राज प्रशासनिक सेवा",
+        en: "Panchayati Raj Administrative Service"
+      },
       isKey: false,
-      tag: "ग्राम विकास अधिकारी (VDO)",
+      tag: {
+        hi: "ग्राम विकास अधिकारी (VDO)",
+        en: "Village Development Officer (VDO)"
+      },
     },
     {
       id: "lekhpal",
@@ -101,9 +131,15 @@ export const Representatives: React.FC = () => {
       whatsapp: "919616023456",
       email: "lekhpal.lambhua@up.gov.in",
       msg: t("lekhpal_msg"),
-      term: "राजस्व विभाग, तहसील लंभुआ",
+      term: {
+        hi: "राजस्व विभाग, तहसील लंभुआ",
+        en: "Revenue Dept, Tehsil Lambhua"
+      },
       isKey: false,
-      tag: "राजस्व अधिकारी",
+      tag: {
+        hi: "राजस्व अधिकारी (लेखपाल)",
+        en: "Revenue Officer (Lekhpal)"
+      },
     },
   ];
 
@@ -117,25 +153,25 @@ export const Representatives: React.FC = () => {
   };
 
   return (
-    <section id="representatives" style={{ padding: "90px 0", backgroundColor: "#fdfcf7" }}>
+    <section id="representatives" style={{ padding: "clamp(40px, 6vw, 90px) 0", backgroundColor: "#fffdfa" }}>
       <div className="container">
         
         {/* Section Header */}
-        <div className="section-header">
-          <div className="vip-badge">
+        <div className="section-header" style={{ textAlign: "center", marginBottom: "40px" }}>
+          <div className="vip-badge" style={{ backgroundColor: "#fef3c7", color: "#92400e", border: "1px solid #fde68a" }}>
             <ShieldCheck size={16} />
             <span>{t("rep_badge")}</span>
           </div>
-          <h2 className="section-title">{t("rep_title")}</h2>
-          <p className="section-subtitle">{t("rep_subtitle")}</p>
+          <h2 className="section-title" style={{ fontSize: "clamp(1.75rem, 4vw, 2.7rem)", fontWeight: 800, color: "#451a03" }}>{t("rep_title")}</h2>
+          <p className="section-subtitle" style={{ fontSize: "clamp(0.95rem, 2vw, 1.05rem)", color: "#78350f" }}>{t("rep_subtitle")}</p>
         </div>
 
-        {/* Top Key Representatives Grid (MLA Sitaram Verma, MP Rambhual Nishad, Pradhan, Block Pramukh) */}
+        {/* Top Key Representatives Grid */}
         <div 
           style={{ 
             display: "grid", 
-            gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", 
-            gap: "26px",
+            gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 260px), 1fr))", 
+            gap: "24px",
             marginBottom: "35px"
           }}
         >
@@ -146,66 +182,68 @@ export const Representatives: React.FC = () => {
               style={{ 
                 display: "flex", 
                 flexDirection: "column", 
-                border: "2px solid #e7dfcc",
-                borderRadius: "22px",
+                border: "1.5px solid #fde68a",
+                borderRadius: "20px",
                 overflow: "hidden",
                 padding: "0",
-                backgroundColor: "#ffffff"
+                backgroundColor: "#ffffff",
+                boxShadow: "0 6px 20px rgba(217, 119, 6, 0.08)"
               }}
             >
               {/* Card Top Banner with Photo */}
-              <div style={{ position: "relative", height: "290px", width: "100%", backgroundColor: "#0b2618" }}>
+              <div style={{ position: "relative", height: "280px", width: "100%", backgroundColor: "#451a03" }}>
                 <Image
                   src={rep.image}
                   alt={rep.name}
                   fill
                   style={{ objectFit: "cover", objectPosition: "top center" }}
                 />
-                <div style={{ position: "absolute", inset: 0, background: "linear-gradient(180deg, transparent 40%, rgba(7, 37, 23, 0.95) 100%)" }} />
+                <div style={{ position: "absolute", inset: 0, background: "linear-gradient(180deg, transparent 40%, rgba(69, 26, 3, 0.96) 100%)" }} />
                 
                 {/* Designation badge on image */}
                 <div style={{ position: "absolute", top: "14px", left: "14px", zIndex: 5 }}>
                   <span style={{ backgroundColor: "#d97706", color: "#ffffff", padding: "4px 12px", borderRadius: "20px", fontSize: "0.78rem", fontWeight: 700, boxShadow: "0 2px 10px rgba(0,0,0,0.3)", display: "inline-flex", alignItems: "center", gap: "5px" }}>
                     <ShieldCheck size={13} />
-                    {rep.tag}
+                    {lang === "hi" ? rep.tag.hi : rep.tag.en}
                   </span>
                 </div>
 
                 {/* Verified icon */}
                 <div style={{ position: "absolute", top: "14px", right: "14px", zIndex: 5 }}>
-                  <span style={{ backgroundColor: "rgba(255,255,255,0.92)", color: "#166534", padding: "3px 9px", borderRadius: "12px", fontSize: "0.72rem", fontWeight: 700, display: "inline-flex", alignItems: "center", gap: "4px" }}>
-                    <CheckCircle2 size={12} color="#16a34a" />
-                    सत्यापित
+                  <span style={{ backgroundColor: "rgba(255,255,255,0.95)", color: "#78350f", padding: "3px 9px", borderRadius: "12px", fontSize: "0.72rem", fontWeight: 700, display: "inline-flex", alignItems: "center", gap: "4px" }}>
+                    <CheckCircle2 size={12} color="#d97706" />
+                    {lang === "hi" ? "सत्यापित" : "Verified"}
                   </span>
                 </div>
 
                 {/* Name over bottom gradient */}
-                <div style={{ position: "absolute", bottom: "14px", left: "18px", right: "18px", zIndex: 5, color: "#ffffff" }}>
-                  <span style={{ fontSize: "0.82rem", color: "#fbbf24", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.5px" }}>
+                <div style={{ position: "absolute", bottom: "14px", left: "16px", right: "16px", zIndex: 5, color: "#ffffff" }}>
+                  <span style={{ fontSize: "0.82rem", color: "#fef3c7", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.5px" }}>
                     {rep.title}
                   </span>
-                  <h3 style={{ fontSize: "1.35rem", fontWeight: 800, margin: "2px 0 0 0", textShadow: "0 2px 6px rgba(0,0,0,0.6)" }}>
+                  <h3 style={{ fontSize: "1.3rem", fontWeight: 800, margin: "2px 0 0 0", textShadow: "0 2px 6px rgba(0,0,0,0.6)" }}>
                     {rep.name}
                   </h3>
                 </div>
               </div>
 
               {/* Body Details */}
-              <div style={{ padding: "20px", display: "flex", flexDirection: "column", flexGrow: 1 }}>
+              <div style={{ padding: "18px", display: "flex", flexDirection: "column", flexGrow: 1 }}>
                 
-                <div style={{ display: "flex", alignItems: "center", gap: "8px", color: "#4b5563", fontSize: "0.85rem", marginBottom: "12px" }}>
-                  <MapPin size={15} color="#059669" />
+                <div style={{ display: "flex", alignItems: "center", gap: "8px", color: "#78350f", fontSize: "0.85rem", marginBottom: "12px" }}>
+                  <MapPin size={15} color="#d97706" />
                   <span style={{ fontWeight: 600 }}>{rep.ward}</span>
                 </div>
 
                 {/* Quote Box */}
-                <div style={{ backgroundColor: "#fbf8ef", borderLeft: "4px solid #d97706", padding: "10px 12px", borderRadius: "0 8px 8px 0", fontSize: "0.88rem", color: "#374151", fontStyle: "italic", marginBottom: "16px", flexGrow: 1, lineHeight: 1.5 }}>
+                <div style={{ backgroundColor: "#fffbeb", borderLeft: "4px solid #d97706", padding: "10px 12px", borderRadius: "0 8px 8px 0", fontSize: "0.88rem", color: "#451a03", fontStyle: "italic", marginBottom: "16px", flexGrow: 1, lineHeight: 1.5 }}>
                   {rep.msg}
                 </div>
 
                 {/* Term */}
-                <div style={{ fontSize: "0.78rem", color: "#6b7280", borderTop: "1px solid #f3ece0", paddingTop: "10px", marginBottom: "14px", fontWeight: 600 }}>
-                  कार्यकाल: {rep.term}
+                <div style={{ fontSize: "0.78rem", color: "#92400e", borderTop: "1px solid #fef3c7", paddingTop: "10px", marginBottom: "14px", fontWeight: 600 }}>
+                  {lang === "hi" ? "कार्यकाल: " : "Tenure: "}
+                  {lang === "hi" ? rep.term.hi : rep.term.en}
                 </div>
 
                 {/* Direct Action Buttons */}
@@ -213,16 +251,16 @@ export const Representatives: React.FC = () => {
                   <a
                     href={`tel:${rep.phone}`}
                     className="btn btn-secondary"
-                    style={{ padding: "8px", fontSize: "0.82rem", borderRadius: "8px" }}
+                    style={{ padding: "8px 10px", fontSize: "0.82rem", borderRadius: "8px", border: "1px solid #fde68a" }}
                   >
-                    <Phone size={14} color="#0e3d28" />
+                    <Phone size={14} color="#d97706" />
                     <span>{t("call_now")}</span>
                   </a>
 
                   <button
                     onClick={() => setActiveModalRep(rep.name)}
                     className="btn btn-primary"
-                    style={{ padding: "8px", fontSize: "0.82rem", borderRadius: "8px" }}
+                    style={{ padding: "8px 10px", fontSize: "0.82rem", borderRadius: "8px" }}
                   >
                     <Mail size={14} />
                     <span>{t("contact_rep_btn")}</span>
@@ -237,18 +275,18 @@ export const Representatives: React.FC = () => {
         <div 
           style={{ 
             display: "grid", 
-            gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", 
+            gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 280px), 1fr))", 
             gap: "24px",
             background: "#ffffff",
-            padding: "26px",
+            padding: "24px",
             borderRadius: "20px",
-            border: "1.5px solid #e2c079",
-            boxShadow: "0 10px 30px rgba(0,0,0,0.05)"
+            border: "1.5px solid #fde68a",
+            boxShadow: "0 6px 20px rgba(217, 119, 6, 0.06)"
           }}
         >
           {reps.filter(r => !r.isKey).map((rep) => (
-            <div key={rep.id} style={{ display: "flex", gap: "16px", alignItems: "center" }}>
-              <div style={{ position: "relative", width: "66px", height: "66px", borderRadius: "50%", overflow: "hidden", border: "2px solid #d97706", flexShrink: 0, boxShadow: "0 4px 10px rgba(0,0,0,0.1)" }}>
+            <div key={rep.id} style={{ display: "flex", gap: "16px", alignItems: "center", flexWrap: "wrap" }}>
+              <div style={{ position: "relative", width: "64px", height: "64px", borderRadius: "50%", overflow: "hidden", border: "2px solid #d97706", flexShrink: 0, boxShadow: "0 4px 10px rgba(0,0,0,0.1)" }}>
                 <Image
                   src={rep.image}
                   alt={rep.name}
@@ -256,26 +294,26 @@ export const Representatives: React.FC = () => {
                   style={{ objectFit: "cover" }}
                 />
               </div>
-              <div style={{ flexGrow: 1 }}>
+              <div style={{ flexGrow: 1, minWidth: "180px" }}>
                 <span style={{ fontSize: "0.76rem", fontWeight: 700, color: "#d97706", textTransform: "uppercase" }}>
                   {rep.title}
                 </span>
-                <h4 style={{ fontSize: "1.12rem", fontWeight: 800, color: "#0e3d28", margin: "2px 0 4px 0" }}>
+                <h4 style={{ fontSize: "1.1rem", fontWeight: 800, color: "#451a03", margin: "2px 0 4px 0" }}>
                   {rep.name}
                 </h4>
-                <p style={{ fontSize: "0.82rem", color: "#6b7280", margin: 0, lineHeight: 1.4 }}>
+                <p style={{ fontSize: "0.82rem", color: "#57534e", margin: 0, lineHeight: 1.4 }}>
                   {rep.msg}
                 </p>
-                <div style={{ marginTop: "6px", display: "flex", gap: "12px", fontSize: "0.8rem" }}>
-                  <a href={`tel:${rep.phone}`} style={{ color: "#0e3d28", fontWeight: 700, display: "inline-flex", alignItems: "center", gap: "4px" }}>
-                    <Phone size={12} color="#0e3d28" />
+                <div style={{ marginTop: "6px", display: "flex", gap: "12px", fontSize: "0.8rem", flexWrap: "wrap" }}>
+                  <a href={`tel:${rep.phone}`} style={{ color: "#78350f", fontWeight: 700, display: "inline-flex", alignItems: "center", gap: "4px" }}>
+                    <Phone size={12} color="#d97706" />
                     {rep.phone}
                   </a>
                   <button 
                     onClick={() => setActiveModalRep(rep.name)}
                     style={{ background: "none", border: "none", color: "#d97706", fontWeight: 700, cursor: "pointer", textDecoration: "underline" }}
                   >
-                    संदेश भेजें
+                    {lang === "hi" ? "संदेश भेजें" : "Send Message"}
                   </button>
                 </div>
               </div>
@@ -291,12 +329,12 @@ export const Representatives: React.FC = () => {
           style={{ 
             position: "fixed", 
             inset: 0, 
-            backgroundColor: "rgba(0,0,0,0.7)", 
+            backgroundColor: "rgba(0,0,0,0.75)", 
             zIndex: 1000, 
             display: "flex", 
             alignItems: "center", 
             justifyContent: "center", 
-            padding: "20px" 
+            padding: "16px" 
           }}
         >
           <div 
@@ -305,76 +343,83 @@ export const Representatives: React.FC = () => {
               maxWidth: "480px", 
               width: "100%", 
               borderRadius: "20px", 
-              padding: "28px", 
-              boxShadow: "0 20px 50px rgba(0,0,0,0.3)" 
+              padding: "clamp(20px, 4vw, 28px)", 
+              boxShadow: "0 20px 50px rgba(0,0,0,0.3)",
+              border: "1.5px solid #fde68a"
             }}
           >
             <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "16px" }}>
               <div>
-                <span style={{ fontSize: "0.8rem", color: "#d97706", fontWeight: 700 }}>सीधा जनसंपर्क</span>
-                <h3 style={{ fontSize: "1.25rem", fontWeight: 800, color: "#0e3d28" }}>
-                  {activeModalRep} को संदेश भेजें
+                <span style={{ fontSize: "0.8rem", color: "#d97706", fontWeight: 700 }}>
+                  {lang === "hi" ? "सीधा जनसंपर्क" : "Direct Connect"}
+                </span>
+                <h3 style={{ fontSize: "1.25rem", fontWeight: 800, color: "#451a03" }}>
+                  {lang === "hi" ? `${activeModalRep} को संदेश भेजें` : `Message ${activeModalRep}`}
                 </h3>
               </div>
               <button 
                 onClick={() => setActiveModalRep(null)}
-                style={{ background: "none", border: "none", cursor: "pointer", color: "#9ca3af" }}
+                style={{ background: "none", border: "none", cursor: "pointer", color: "#78350f", padding: "4px" }}
               >
                 <X size={22} />
               </button>
             </div>
 
             {msgSent ? (
-              <div style={{ textAlign: "center", padding: "30px 10px", color: "#15803d" }}>
+              <div style={{ textAlign: "center", padding: "30px 10px", color: "#16a34a" }}>
                 <CheckCircle2 size={48} style={{ margin: "0 auto 12px auto" }} />
-                <h4 style={{ fontSize: "1.2rem", fontWeight: 700 }}>आपका संदेश सफलतापूर्वक भेज दिया गया है!</h4>
-                <p style={{ fontSize: "0.9rem", color: "#4b5563", marginTop: "6px" }}>प्रतिनिधि कार्यालय आपसे शीघ्र संपर्क करेगा।</p>
+                <h4 style={{ fontSize: "1.2rem", fontWeight: 700 }}>
+                  {lang === "hi" ? "आपका संदेश सफलतापूर्वक भेज दिया गया है!" : "Your message has been sent successfully!"}
+                </h4>
+                <p style={{ fontSize: "0.9rem", color: "#78350f", marginTop: "6px" }}>
+                  {lang === "hi" ? "प्रतिनिधि कार्यालय आपसे शीघ्र संपर्क करेगा।" : "The representative's office will get back to you shortly."}
+                </p>
               </div>
             ) : (
               <form onSubmit={handleSendMessage}>
                 <div style={{ marginBottom: "14px" }}>
-                  <label style={{ display: "block", fontSize: "0.85rem", fontWeight: 600, color: "#374151", marginBottom: "6px" }}>
-                    आपका नाम
+                  <label style={{ display: "block", fontSize: "0.85rem", fontWeight: 600, color: "#451a03", marginBottom: "6px" }}>
+                    {lang === "hi" ? "आपका नाम" : "Your Name"}
                   </label>
                   <input
                     type="text"
                     required
-                    placeholder="उदा. राहुल कुमार (गरायें लंभुआ)"
-                    style={{ width: "100%", padding: "10px 12px", borderRadius: "8px", border: "1px solid #d1d5db", fontSize: "0.92rem" }}
+                    placeholder={lang === "hi" ? "उदा. राहुल कुमार (गरायें लंभुआ)" : "e.g. Rahul Kumar (Garayen, Lambhua)"}
+                    style={{ width: "100%", padding: "10px 12px", borderRadius: "8px", border: "1px solid #fde68a", fontSize: "0.92rem", outline: "none" }}
                   />
                 </div>
 
                 <div style={{ marginBottom: "14px" }}>
-                  <label style={{ display: "block", fontSize: "0.85rem", fontWeight: 600, color: "#374151", marginBottom: "6px" }}>
-                    मोबाइल नंबर
+                  <label style={{ display: "block", fontSize: "0.85rem", fontWeight: 600, color: "#451a03", marginBottom: "6px" }}>
+                    {lang === "hi" ? "मोबाइल नंबर" : "Mobile Number"}
                   </label>
                   <input
                     type="tel"
                     required
                     placeholder="98XXXXXXXX"
-                    style={{ width: "100%", padding: "10px 12px", borderRadius: "8px", border: "1px solid #d1d5db", fontSize: "0.92rem" }}
+                    style={{ width: "100%", padding: "10px 12px", borderRadius: "8px", border: "1px solid #fde68a", fontSize: "0.92rem", outline: "none" }}
                   />
                 </div>
 
                 <div style={{ marginBottom: "18px" }}>
-                  <label style={{ display: "block", fontSize: "0.85rem", fontWeight: 600, color: "#374151", marginBottom: "6px" }}>
-                    आपका संदेश / विषय
+                  <label style={{ display: "block", fontSize: "0.85rem", fontWeight: 600, color: "#451a03", marginBottom: "6px" }}>
+                    {lang === "hi" ? "आपका संदेश / विषय" : "Your Message / Subject"}
                   </label>
                   <textarea
                     rows={3}
                     required
-                    placeholder="गरायें गाँव के विकास अथवा समस्या संबंधित संदेश..."
-                    style={{ width: "100%", padding: "10px 12px", borderRadius: "8px", border: "1px solid #d1d5db", fontSize: "0.92rem", resize: "vertical" }}
+                    placeholder={lang === "hi" ? "गरायें गाँव के विकास अथवा समस्या संबंधित संदेश..." : "Message regarding Garayen development or community issue..."}
+                    style={{ width: "100%", padding: "10px 12px", borderRadius: "8px", border: "1px solid #fde68a", fontSize: "0.92rem", resize: "vertical", outline: "none" }}
                   />
                 </div>
 
                 <button
                   type="submit"
-                  className="btn btn-gold"
-                  style={{ width: "100%", padding: "12px", borderRadius: "10px" }}
+                  className="btn btn-primary"
+                  style={{ width: "100%", padding: "12px", borderRadius: "10px", fontSize: "0.95rem" }}
                 >
                   <Send size={16} />
-                  <span>संदेश प्रेषित करें</span>
+                  <span>{lang === "hi" ? "संदेश प्रेषित करें" : "Send Message"}</span>
                 </button>
               </form>
             )}

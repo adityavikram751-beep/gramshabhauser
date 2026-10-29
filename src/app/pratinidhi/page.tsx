@@ -3,17 +3,23 @@
 import React from "react";
 import Link from "next/link";
 import { Representatives } from "@/components/Representatives";
-import { ShieldCheck } from "lucide-react";
+import { useLanguage } from "@/context/LanguageContext";
 
 export default function PratinidhiPage() {
+  const { lang } = useLanguage();
+
   return (
-    <div style={{ backgroundColor: "#fdfbf7", minHeight: "85vh", padding: "40px 0 80px 0" }}>
+    <div style={{ backgroundColor: "#fffdfa", minHeight: "85vh", padding: "clamp(30px, 5vw, 50px) 0 80px 0" }}>
       <div className="container">
         {/* Breadcrumb Navigation */}
-        <div style={{ display: "flex", alignItems: "center", gap: "8px", fontSize: "0.85rem", color: "#6b7280", marginBottom: "20px" }}>
-          <Link href="/" style={{ color: "#0e3d28", fontWeight: 600 }}>मुख्य पृष्ठ</Link>
+        <div style={{ display: "flex", alignItems: "center", gap: "8px", fontSize: "0.85rem", color: "#78350f", marginBottom: "20px", flexWrap: "wrap" }}>
+          <Link href="/" style={{ color: "#d97706", fontWeight: 700 }}>
+            {lang === "hi" ? "मुख्य पृष्ठ" : "Home"}
+          </Link>
           <span>/</span>
-          <span style={{ color: "#b45309", fontWeight: 700 }}>जन प्रतिनिधि (Leadership)</span>
+          <span style={{ color: "#78350f", fontWeight: 700 }}>
+            {lang === "hi" ? "जन प्रतिनिधि (Leadership)" : "Elected Representatives"}
+          </span>
         </div>
       </div>
       <Representatives />

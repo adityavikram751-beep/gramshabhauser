@@ -47,27 +47,29 @@ export const ContactSection: React.FC = () => {
   };
 
   return (
-    <section id="contact" style={{ padding: "90px 0", backgroundColor: "#ffffff" }}>
+    <section id="contact" style={{ padding: "clamp(40px, 6vw, 90px) 0", backgroundColor: "#ffffff" }}>
       <div className="container">
         
         {/* Section Header */}
-        <div className="section-header">
-          <div className="vip-badge">
+        <div className="section-header" style={{ textAlign: "center", marginBottom: "40px" }}>
+          <div className="vip-badge" style={{ backgroundColor: "#fef3c7", color: "#92400e", border: "1px solid #fde68a" }}>
             <PhoneCall size={16} />
             <span>{t("contact_badge")}</span>
           </div>
-          <h2 className="section-title">{t("contact_title")}</h2>
-          <p className="section-subtitle">{t("contact_subtitle")}</p>
+          <h2 className="section-title" style={{ fontSize: "clamp(1.75rem, 4vw, 2.7rem)", fontWeight: 800, color: "#451a03" }}>{t("contact_title")}</h2>
+          <p className="section-subtitle" style={{ fontSize: "clamp(0.95rem, 2vw, 1.05rem)", color: "#78350f" }}>{t("contact_subtitle")}</p>
         </div>
 
         {/* 24x7 Emergency Hotlines Grid */}
-        <div style={{ marginBottom: "50px" }}>
-          <h3 style={{ fontSize: "1.25rem", fontWeight: 800, color: "#0e3d28", marginBottom: "18px", display: "flex", alignItems: "center", gap: "8px" }}>
-            <AlertCircle size={20} color="#dc2626" />
-            <span>{t("contact_helpline_title")} (24x7 निःशुल्क सेवा)</span>
+        <div style={{ marginBottom: "45px" }}>
+          <h3 style={{ fontSize: "1.2rem", fontWeight: 800, color: "#451a03", marginBottom: "16px", display: "flex", alignItems: "center", gap: "8px" }}>
+            <AlertCircle size={20} color="#d97706" />
+            <span>
+              {t("contact_helpline_title")} {lang === "hi" ? "(24x7 निःशुल्क सेवा)" : "(24x7 Toll-Free)"}
+            </span>
           </h3>
 
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(180px, 1fr))", gap: "16px" }}>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 150px), 1fr))", gap: "14px" }}>
             {emergencyNumbers.map((em, idx) => {
               const Icon = em.icon;
               return (
@@ -78,10 +80,10 @@ export const ContactSection: React.FC = () => {
                     backgroundColor: em.bg,
                     border: `1.5px solid ${em.color}25`,
                     borderRadius: "16px",
-                    padding: "16px",
+                    padding: "14px",
                     display: "flex",
                     alignItems: "center",
-                    gap: "14px",
+                    gap: "12px",
                     textDecoration: "none",
                     transition: "all 0.25s ease",
                     boxShadow: "0 2px 8px rgba(0,0,0,0.03)"
@@ -89,14 +91,14 @@ export const ContactSection: React.FC = () => {
                   onMouseEnter={(e) => e.currentTarget.style.transform = "translateY(-3px)"}
                   onMouseLeave={(e) => e.currentTarget.style.transform = "translateY(0)"}
                 >
-                  <div style={{ width: "42px", height: "42px", borderRadius: "10px", backgroundColor: "#ffffff", display: "flex", alignItems: "center", justifyContent: "center", color: em.color, flexShrink: 0, boxShadow: "0 2px 6px rgba(0,0,0,0.06)" }}>
-                    <Icon size={22} />
+                  <div style={{ width: "40px", height: "40px", borderRadius: "10px", backgroundColor: "#ffffff", display: "flex", alignItems: "center", justifyContent: "center", color: em.color, flexShrink: 0, boxShadow: "0 2px 6px rgba(0,0,0,0.06)" }}>
+                    <Icon size={20} />
                   </div>
                   <div>
-                    <span style={{ fontSize: "0.8rem", color: "#4b5563", fontWeight: 600, display: "block" }}>
+                    <span style={{ fontSize: "0.78rem", color: "#57534e", fontWeight: 600, display: "block" }}>
                       {em.title}
                     </span>
-                    <strong style={{ fontSize: "1.3rem", color: em.color, fontWeight: 800 }}>
+                    <strong style={{ fontSize: "1.2rem", color: em.color, fontWeight: 800 }}>
                       {em.num}
                     </strong>
                   </div>
@@ -110,33 +112,36 @@ export const ContactSection: React.FC = () => {
         <div 
           style={{ 
             display: "grid", 
-            gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", 
-            gap: "35px" 
+            gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 300px), 1fr))", 
+            gap: "28px" 
           }}
         >
           
           {/* Left: Office Address & Landmark Card */}
           <div 
             style={{ 
-              backgroundColor: "#fdfbf7", 
+              backgroundColor: "#fffdfa", 
               borderRadius: "24px", 
-              padding: "36px", 
-              border: "1.5px solid #e7dfcc" 
+              padding: "clamp(20px, 4vw, 36px)", 
+              border: "1.5px solid #fde68a",
+              boxShadow: "0 6px 20px rgba(217, 119, 6, 0.05)"
             }}
           >
             <span style={{ color: "#d97706", fontWeight: 700, fontSize: "0.82rem", textTransform: "uppercase" }}>
-              ग्राम सचिवालय
+              {lang === "hi" ? "ग्राम सचिवालय" : "Panchayat Secretariat"}
             </span>
-            <h4 style={{ fontSize: "1.6rem", fontWeight: 800, color: "#0e3d28", margin: "4px 0 16px 0" }}>
+            <h4 style={{ fontSize: "clamp(1.3rem, 2.5vw, 1.6rem)", fontWeight: 800, color: "#451a03", margin: "4px 0 16px 0" }}>
               {t("contact_address_title")}
             </h4>
 
-            <div style={{ display: "flex", flexDirection: "column", gap: "16px", marginBottom: "26px" }}>
+            <div style={{ display: "flex", flexDirection: "column", gap: "16px", marginBottom: "24px" }}>
               <div style={{ display: "flex", gap: "12px", alignItems: "flex-start" }}>
-                <MapPin size={20} color="#059669" style={{ marginTop: "3px", flexShrink: 0 }} />
+                <MapPin size={20} color="#d97706" style={{ marginTop: "3px", flexShrink: 0 }} />
                 <div>
-                  <strong style={{ color: "#1f2937", fontSize: "0.95rem", display: "block" }}>पता</strong>
-                  <span style={{ color: "#4b5563", fontSize: "0.9rem", lineHeight: 1.5 }}>
+                  <strong style={{ color: "#451a03", fontSize: "0.95rem", display: "block" }}>
+                    {lang === "hi" ? "पता" : "Address"}
+                  </strong>
+                  <span style={{ color: "#57534e", fontSize: "0.9rem", lineHeight: 1.5 }}>
                     {t("contact_address")}
                   </span>
                 </div>
@@ -145,18 +150,20 @@ export const ContactSection: React.FC = () => {
               <div style={{ display: "flex", gap: "12px", alignItems: "flex-start" }}>
                 <Clock size={20} color="#d97706" style={{ marginTop: "3px", flexShrink: 0 }} />
                 <div>
-                  <strong style={{ color: "#1f2937", fontSize: "0.95rem", display: "block" }}>{t("office_time")}</strong>
-                  <span style={{ color: "#4b5563", fontSize: "0.9rem" }}>
+                  <strong style={{ color: "#451a03", fontSize: "0.95rem", display: "block" }}>{t("office_time")}</strong>
+                  <span style={{ color: "#57534e", fontSize: "0.9rem" }}>
                     {t("office_time_val")}
                   </span>
                 </div>
               </div>
 
               <div style={{ display: "flex", gap: "12px", alignItems: "flex-start" }}>
-                <Mail size={20} color="#2563eb" style={{ marginTop: "3px", flexShrink: 0 }} />
+                <Mail size={20} color="#d97706" style={{ marginTop: "3px", flexShrink: 0 }} />
                 <div>
-                  <strong style={{ color: "#1f2937", fontSize: "0.95rem", display: "block" }}>ईमेल</strong>
-                  <span style={{ color: "#4b5563", fontSize: "0.9rem" }}>
+                  <strong style={{ color: "#451a03", fontSize: "0.95rem", display: "block" }}>
+                    {lang === "hi" ? "ईमेल" : "Email"}
+                  </strong>
+                  <span style={{ color: "#57534e", fontSize: "0.9rem" }}>
                     {t("contact_email")}
                   </span>
                 </div>
@@ -168,28 +175,28 @@ export const ContactSection: React.FC = () => {
               style={{ 
                 borderRadius: "16px", 
                 overflow: "hidden", 
-                border: "2px solid #e2c079",
+                border: "1.5px solid #fde68a",
                 position: "relative",
                 height: "190px",
-                backgroundColor: "#e8f5e9"
+                backgroundColor: "#fffbeb"
               }}
             >
-              <div style={{ position: "absolute", inset: 0, opacity: 0.25, backgroundImage: "radial-gradient(#15803d 1px, transparent 1px)", backgroundSize: "16px 16px" }} />
+              <div style={{ position: "absolute", inset: 0, opacity: 0.35, backgroundImage: "radial-gradient(#d97706 1px, transparent 1px)", backgroundSize: "16px 16px" }} />
               
               {/* Landmark Pins */}
-              <div style={{ position: "absolute", top: "25px", left: "30px", display: "flex", alignItems: "center", gap: "6px", backgroundColor: "#ffffff", padding: "4px 10px", borderRadius: "14px", boxShadow: "0 2px 6px rgba(0,0,0,0.15)", fontSize: "0.78rem", fontWeight: 700, color: "#0e3d28" }}>
-                <MapPin size={14} color="#ea580c" />
-                <span>प्राचीन शिव मंदिर</span>
+              <div style={{ position: "absolute", top: "20px", left: "20px", display: "flex", alignItems: "center", gap: "6px", backgroundColor: "#ffffff", padding: "4px 10px", borderRadius: "14px", boxShadow: "0 2px 6px rgba(0,0,0,0.1)", fontSize: "0.76rem", fontWeight: 700, color: "#451a03", border: "1px solid #fde68a" }}>
+                <MapPin size={13} color="#d97706" />
+                <span>{lang === "hi" ? "प्राचीन शिव मंदिर" : "Ancient Shiva Temple"}</span>
               </div>
 
-              <div style={{ position: "absolute", bottom: "30px", left: "45px", display: "flex", alignItems: "center", gap: "6px", backgroundColor: "#ffffff", padding: "4px 10px", borderRadius: "14px", boxShadow: "0 2px 6px rgba(0,0,0,0.15)", fontSize: "0.78rem", fontWeight: 700, color: "#0e3d28" }}>
-                <Navigation size={14} color="#059669" />
-                <span>अमृत सरोवर व पार्क</span>
+              <div style={{ position: "absolute", bottom: "24px", left: "24px", display: "flex", alignItems: "center", gap: "6px", backgroundColor: "#ffffff", padding: "4px 10px", borderRadius: "14px", boxShadow: "0 2px 6px rgba(0,0,0,0.1)", fontSize: "0.76rem", fontWeight: 700, color: "#451a03", border: "1px solid #fde68a" }}>
+                <Navigation size={13} color="#d97706" />
+                <span>{lang === "hi" ? "अमृत सरोवर व पार्क" : "Amrit Sarovar & Park"}</span>
               </div>
 
-              <div style={{ position: "absolute", top: "50%", right: "30px", transform: "translateY(-50%)", display: "flex", alignItems: "center", gap: "6px", backgroundColor: "#0e3d28", padding: "6px 12px", borderRadius: "14px", boxShadow: "0 4px 12px rgba(0,0,0,0.2)", fontSize: "0.82rem", fontWeight: 800, color: "#fbbf24" }}>
-                <MapPin size={16} color="#fbbf24" />
-                <span>सचिवालय (Panchayat Bhawan)</span>
+              <div style={{ position: "absolute", top: "50%", right: "20px", transform: "translateY(-50%)", display: "flex", alignItems: "center", gap: "6px", backgroundColor: "#451a03", padding: "6px 12px", borderRadius: "14px", boxShadow: "0 4px 12px rgba(69, 26, 3, 0.25)", fontSize: "0.8rem", fontWeight: 800, color: "#fde68a" }}>
+                <MapPin size={15} color="#d97706" />
+                <span>{lang === "hi" ? "सचिवालय (पंचायत भवन)" : "Secretariat (Panchayat Bhawan)"}</span>
               </div>
             </div>
           </div>
@@ -199,28 +206,32 @@ export const ContactSection: React.FC = () => {
             style={{ 
               backgroundColor: "#ffffff", 
               borderRadius: "24px", 
-              padding: "36px", 
-              border: "1.5px solid #e7dfcc",
-              boxShadow: "0 10px 30px rgba(0,0,0,0.05)" 
+              padding: "clamp(20px, 4vw, 36px)", 
+              border: "1.5px solid #fde68a",
+              boxShadow: "0 6px 20px rgba(217, 119, 6, 0.05)" 
             }}
           >
-            <h4 style={{ fontSize: "1.45rem", fontWeight: 800, color: "#0e3d28", marginBottom: "6px" }}>
+            <h4 style={{ fontSize: "clamp(1.25rem, 2.5vw, 1.45rem)", fontWeight: 800, color: "#451a03", marginBottom: "6px" }}>
               {t("feedback_title")}
             </h4>
-            <p style={{ fontSize: "0.9rem", color: "#6b7280", marginBottom: "20px" }}>
-              गाँव के विकास अथवा किसी सेवा के संबंध में अपना विचार या संदेश सीधे साझा करें।
+            <p style={{ fontSize: "0.9rem", color: "#78350f", marginBottom: "20px" }}>
+              {lang === "hi" 
+                ? "गाँव के विकास अथवा किसी सेवा के संबंध में अपना विचार या संदेश सीधे साझा करें।"
+                : "Share your views, questions, or ideas regarding village development and public services directly."}
             </p>
 
             {sent ? (
               <div style={{ backgroundColor: "#ecfdf5", border: "1px solid #a7f3d0", padding: "30px", borderRadius: "16px", textAlign: "center", color: "#065f46" }}>
                 <CheckCircle2 size={42} style={{ margin: "0 auto 10px auto" }} />
                 <h5 style={{ fontSize: "1.15rem", fontWeight: 700 }}>{t("feedback_success")}</h5>
-                <p style={{ fontSize: "0.85rem", color: "#047857", marginTop: "4px" }}>सचिवालय टीम आपसे संपर्क करेगी।</p>
+                <p style={{ fontSize: "0.85rem", color: "#047857", marginTop: "4px" }}>
+                  {lang === "hi" ? "सचिवालय टीम आपसे संपर्क करेगी।" : "The secretariat team will contact you shortly."}
+                </p>
               </div>
             ) : (
               <form onSubmit={handleSendFeedback}>
                 <div style={{ marginBottom: "14px" }}>
-                  <label style={{ display: "block", fontSize: "0.85rem", fontWeight: 600, color: "#374151", marginBottom: "6px" }}>
+                  <label style={{ display: "block", fontSize: "0.85rem", fontWeight: 600, color: "#451a03", marginBottom: "6px" }}>
                     {t("feedback_name")} *
                   </label>
                   <input
@@ -228,13 +239,13 @@ export const ContactSection: React.FC = () => {
                     required
                     value={name}
                     onChange={(e) => setName(e.target.value)}
-                    placeholder="आपका पूरा नाम"
-                    style={{ width: "100%", padding: "11px 13px", borderRadius: "10px", border: "1.5px solid #d1d5db", fontSize: "0.92rem", outline: "none" }}
+                    placeholder={lang === "hi" ? "आपका पूरा नाम" : "Your Full Name"}
+                    style={{ width: "100%", padding: "11px 13px", borderRadius: "10px", border: "1.5px solid #fde68a", fontSize: "0.92rem", outline: "none" }}
                   />
                 </div>
 
                 <div style={{ marginBottom: "14px" }}>
-                  <label style={{ display: "block", fontSize: "0.85rem", fontWeight: 600, color: "#374151", marginBottom: "6px" }}>
+                  <label style={{ display: "block", fontSize: "0.85rem", fontWeight: 600, color: "#451a03", marginBottom: "6px" }}>
                     {t("feedback_phone")} *
                   </label>
                   <input
@@ -243,12 +254,12 @@ export const ContactSection: React.FC = () => {
                     value={phone}
                     onChange={(e) => setPhone(e.target.value)}
                     placeholder="98XXXXXXXX"
-                    style={{ width: "100%", padding: "11px 13px", borderRadius: "10px", border: "1.5px solid #d1d5db", fontSize: "0.92rem", outline: "none" }}
+                    style={{ width: "100%", padding: "11px 13px", borderRadius: "10px", border: "1.5px solid #fde68a", fontSize: "0.92rem", outline: "none" }}
                   />
                 </div>
 
                 <div style={{ marginBottom: "20px" }}>
-                  <label style={{ display: "block", fontSize: "0.85rem", fontWeight: 600, color: "#374151", marginBottom: "6px" }}>
+                  <label style={{ display: "block", fontSize: "0.85rem", fontWeight: 600, color: "#451a03", marginBottom: "6px" }}>
                     {t("feedback_msg")} *
                   </label>
                   <textarea
@@ -256,8 +267,8 @@ export const ContactSection: React.FC = () => {
                     required
                     value={msg}
                     onChange={(e) => setMsg(e.target.value)}
-                    placeholder="अपना संदेश यहाँ लिखें..."
-                    style={{ width: "100%", padding: "11px 13px", borderRadius: "10px", border: "1.5px solid #d1d5db", fontSize: "0.92rem", outline: "none", resize: "vertical" }}
+                    placeholder={lang === "hi" ? "अपना संदेश यहाँ लिखें..." : "Type your message here..."}
+                    style={{ width: "100%", padding: "11px 13px", borderRadius: "10px", border: "1.5px solid #fde68a", fontSize: "0.92rem", outline: "none", resize: "vertical" }}
                   />
                 </div>
 
