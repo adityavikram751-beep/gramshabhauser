@@ -11,7 +11,6 @@ import {
   Sun, 
   Menu, 
   X, 
-  AlertCircle, 
   HeartHandshake, 
   MessageSquareWarning,
   ChevronDown
@@ -105,20 +104,6 @@ export const Header: React.FC = () => {
         </div>
       </div>
 
-      {/* Emergency Helpline Marquee ticker */}
-      <div style={{ backgroundColor: "#fef3c7", borderBottom: "1px solid #fde68a", padding: "4px 0", overflow: "hidden", fontSize: "0.82rem", color: "#92400e" }}>
-        <div className="container" style={{ display: "flex", alignItems: "center", gap: "10px" }}>
-          <span style={{ display: "inline-flex", alignItems: "center", gap: "4px", backgroundColor: "#dc2626", color: "#ffffff", padding: "1px 8px", borderRadius: "4px", fontWeight: 700, fontSize: "0.75rem", whiteSpace: "nowrap" }}>
-            <AlertCircle size={12} />
-            LIVE सूचना
-          </span>
-          <div style={{ overflow: "hidden", whiteSpace: "nowrap", width: "100%" }}>
-            <div className="animate-marquee" style={{ fontWeight: 600 }}>
-              {t("helpline")} • {lang === "hi" ? "ग्राम पंचायत सचिवालय में प्रत्येक सोमवार जनसुनवाई दिवस आयोजित होता है।" : "Public grievance hearing every Monday at Panchayat Secretariat."}
-            </div>
-          </div>
-        </div>
-      </div>
 
       {/* Main Branding Bar */}
       <div className="container" style={{ padding: "12px 20px", display: "flex", justifyContent: "space-between", alignItems: "center", gap: "20px" }}>
