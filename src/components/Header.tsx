@@ -8,7 +8,6 @@ import {
   Globe, 
   PhoneCall, 
   Clock, 
-  Sun, 
   Menu, 
   X, 
   HeartHandshake, 
@@ -68,10 +67,6 @@ export const Header: React.FC = () => {
           </div>
 
           <div style={{ display: "flex", alignItems: "center", gap: "18px" }}>
-            <div style={{ display: "flex", alignItems: "center", gap: "6px", color: "#93c5fd" }}>
-              <Sun size={13} color="#f59e0b" />
-              <span>{t("weather")}</span>
-            </div>
 
             {/* Language Switch Button - VIP style */}
             <button
